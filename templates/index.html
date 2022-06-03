@@ -2,487 +2,507 @@
 
 {% block main %}
 
+		<!-- start Call To Action section -->
+		<section class="call-to-act">
+			<div class="container-fluid container-sizing">
+			
+				<div class="col-md-6 col-sm-6 no-padd bl-dark banner-pilot">
+					<div class="call-to-act-caption">
+						<h2>Are you a company looking for the best-fitted drone pilot for your project? </h2>
+						<!-- <h3>Flyby provides your company with a wide range of qualified drone pilots that can bring your drone project to the next level. </h3> -->
+						<a href="#" data-toggle="modal" data-target="#signup" class="btn bat-call-to-act banner-btn">Hire a pilot</a>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-sm-6 no-padd gr-dark banner-company">
+					<div class="call-to-act-caption">
+						<h2>Are you a drone pilot and you want to work on exciting drone projects?</h2>
+						<!-- <h3>Flyby provides a centralized platform to find the right drone project that fits your experience, skillset or location. Sign up now to start expending your portfolio. </h3> -->
+						<a href="#" data-toggle="modal" data-target="#signup" class="btn bat-call-to-act banner-btn">Get a project</a>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+		<!-- Call To Action section End -->
+		
+		<!-- bottom form section start -->
+		<section class="bottom-search-form">
+			<div class="container">
+				<form class="bt-form">
+					<div class="col-md-4 col-sm-6">
+						<input type="text" class="form-control" placeholder="Search by Keywords">
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<select class="form-control">
+						  <option>Choose Experience Level</option>
+						  <option>1 Year</option>
+						  <option>2 Years</option>
+						  <option>3 Years</option>
+						  <option>4 Years</option>
+						</select>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<input type="text" class="form-control" id="joblist" placeholder="Companies">
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<select id="choose-category" class="form-control">
+							<option>Choose Job Category</option>
+							<option>Photography</option>
+							<option>Videography</option>
+							<option>Mapping Services</option>
+							<option>Live Streaming</option>
+							<option>Agriculture</option>
+							<option>Maintenance</option>
+							<!-- <option>Book Services</option> -->
+						</select>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<select id="choose-city" class="form-control">
+							<option>Choose City</option>
+							<option>Madrid</option>
+							<option>London</option>
+							<option>Warsaw</option>
+							<option>Amsterdam</option>
+							<option>Rome</option>
+							<option>Zurich</option>
+						</select>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<button data-toggle="modal" data-target="#signup" type="submit" class="btn btn-primary">Search</button>
+					</div>
+				</form>
+			</div>
+		</section>
+		<!-- Bottom Search Form Section End -->
+		
+		<!-- Jobs By Category Start-->
+		<section>
+			<div class="container">
+			
+			  <div class="row">
+					<div class="main-heading">
+						<h2>Browse Projects By <span>Category</span></h2>
+					</div>
+			   </div>
 
-			<!-- Main Banner Section Start -->
-			<div class="simple-banner" style="background-image:url(http://via.placeholder.com/1920x850);">  
-				<!-- Wrapper for carousel items -->
-				<div class="container">
-					<div class="simple-banner-caption">
-							<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 banner-text">
-								<h3>We Are Available On</h3>
-								<h1>Job <span>Stock</span></h1>
+			   <div class="row">
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-camera" aria-hidden="true"></i>
+									<i class="icon-camera abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a data-toggle="modal" data-target="#signup" href="browse-jobs-grid.html">Photography</a></h4>
+									<p>122 Jobs</p>
+								</div>
 							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-video" aria-hidden="true"></i>
+									<i class="icon-video abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a data-toggle="modal" data-target="#signup" href="browse-jobs-grid.html">Videograpy</a></h4>
+									<p>155 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-map" aria-hidden="true"></i>
+									<i class="icon-map abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a data-toggle="modal" data-target="#signup" href="browse-jobs-grid.html">Mapping services</a></h4>
+									<p>300 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-video" aria-hidden="true"></i>
+									<i class="icon-video abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a data-toggle="modal" data-target="#signup" href="browse-jobs-grid.html">Live streaming</a></h4>
+									<p>80 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+<!-- 						
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-heart" aria-hidden="true"></i>
+									<i class="icon-heart abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a href="browse-jobs-grid.html">Healthcare</a></h4>
+									<p>120 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-wine" aria-hidden="true"></i>
+									<i class="icon-wine abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a href="browse-jobs-grid.html">Restaurant & Food</a></h4>
+									<p>78 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-map" aria-hidden="true"></i>
+									<i class="icon-map abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a href="browse-jobs-grid.html">Transportation</a></h4>
+									<p>90 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-sm-6">
+						<div class="category-box" data-aos="fade-up">
+							<div class="category-desc">
+								<div class="category-icon">
+									<i class="icon-desktop" aria-hidden="true"></i>
+									<i class="icon-desktop abs-icon" aria-hidden="true"></i>
+								</div>
+
+								<div class="category-detail category-desc-text">
+									<h4> <a href="browse-jobs-grid.html">Telecommunications</a></h4>
+									<p>210 Jobs</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					 -->
+				</div>
+				
+			</div>
+		</section>
+		<!-- Job By Category End-->
+		
+		<!-- video section Start -->
+		<section class="video-sec dark" id="video" style="background-image:url(assets/img/FlyBy_banner_size.jpg);">
+			<div class="container">
+				<div class="row">
+					<div class="main-heading">
+						<p>Best For Your Projects</p>
+						<h2>Watch Our <span>video</span></h2>
+					</div>
+				</div>
+				<!--/row-->
+				<div class="video-part">
+					<a href="#" data-toggle="modal" data-target="#my-video" class="video-btn"><i class="fa fa-play"></i></a>
+				</div>
+			</div>
+		</section>
+		<!-- video section Start -->
+		
+
+		<!-- ====================== 1 How It Work ================= -->
+		<section class="how-it-works">
+			<div class="container">
+				
+				<div class="row" data-aos="fade-up">
+					<div class="col-md-12">
+						<div class="main-heading">
+							<p>Working Process</p>
+							<h2>How It Works <span>For Companies</span></h2>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+				
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-1.png" class="img-responsive" alt="" />
+								<span class="process-num">01</span>
+							</span>
+							<h4>Create An Account</h4>
+							<p>Signup as a company and fill out the some details about your company. </p>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-2.png" class="img-responsive" alt="" />
+								<span class="process-num">02</span>
+							</span>
+							<h4>Publish a project</h4>
+							<p>Specify the requirements for your project and publish it to our platform for drone pilots to see and find you.
+							</p>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-3.png" class="img-responsive" alt="" />
+								<span class="process-num">03</span>
+							</span>
+							<h4>Find your match</h4>
+							<p>Wait for the drone pilots to apply for your project or browse through pilots on the platform that would fit the desired skillset and connect directly.</p>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</section>
+		<div class="clearfix"></div>
+		<!-- ====================== 1 How It Work END ================= -->
+		
+		<!-- ====================== 2 How It Work ================= -->
+		<section class="how-it-works">
+			<div class="container">
+				
+				<div class="row" data-aos="fade-up">
+					<div class="col-md-12">
+						<div class="main-heading">
+							<p>Working Process</p>
+							<h2>How It Works <span>For Pilots</span></h2>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+				
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-1.png" class="img-responsive" alt="" />
+								<span class="process-num">01</span>
+							</span>
+							<h4>Create An Account</h4>
+							<p>Create an account, list your experience and showcase your portfolio. </p>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-2.png" class="img-responsive" alt="" />
+								<span class="process-num">02</span>
+							</span>
+							<h4>Search Projects</h4>
+							<p>Browse through projects that would fit your skillset and experience and connect directly. </p>
+						</div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4">
+						<div class="working-process">
+							<span class="process-img">
+								<img src="assets/img/step-3.png" class="img-responsive" alt="" />
+								<span class="process-num">03</span>
+							</span>
+							<h4>Work securely </h4>
+							<p>When granted the project: Plan, organize and submit your projects easily in the Flyby Drive workspace.</p>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</section>
+		<div class="clearfix"></div>
+		<!-- ====================== 2 How It Work END ================= -->
+
+		<!-- start Call To Action section -->
+		<div class="clearfix"></div>
+		<section class="call-to-act two-window-sizing">
+			<div class="container-fluid">
+			
+				<div class="col-md-6 col-sm-6 no-padd bl-dark">
+					<div class="call-to-act-caption">
+						<h2>Find the right drone pilot for your project</h2>
+						<h3>Flyby provides your company with a wide range of qualified drone pilots that can bring your drone project to the next level. Sign up now and hire the best drone pilots!</h3>
+						<a data-toggle="modal" data-target="#signup"  href="#" class="btn bat-call-to-act">Join Us</a>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-sm-6 no-padd gr-dark">
+					<div class="call-to-act-caption">
+						<h2>Find the perfect project as a drone pilot</h2>
+						<h3>Flyby provides a centralized platform to find the right drone project that fits your experience, skillset or location. Sign up now to start expending your portfolio!</h3>
+						<a data-toggle="modal" data-target="#signup" href="#" class="btn bat-call-to-act">Join Us</a>
+					</div>
+				</div>
+				
+			</div>
+		</section>
+		<!-- Call To Action section End -->
+
+		<!-- (where does this belong??) <div class="col-md-6 col-sm-6 no-padd bl-dark"> -->
+
+		<!-- start testimonial section -->
+		<div class="clearfix"></div>
+		<section class="testimonial" id="testimonial">
+			<div class="container">
+				<div class="row">
+					<div class="main-heading">
+						<p>What Our Users Think</p>
+						<h2>Our Success <span>Stories</span></h2>
+					</div>
+				</div>
+				<!--/row-->
+				
+				<div class="row">
+					<div id="client-testimonial-slider" class="owl-carousel">
+						<div class="client-testimonial">
+							<div class="pic">
+								<img src="assets/img/can-1.png" alt="">
+							</div>
+							<p class="client-description">
+								Thanks to Flyby I can call myself a fulltime drone pilot now! Doing what I love most for a living has been my goal for the longest time. Now that goal is a reality. Thank you Flyby!
+							</p>
+							<h3 class="client-testimonial-title">Luke Hendricks</h3>
+							<ul class="client-testimonial-rating">
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+							</ul>
+						</div>
+
+						<div class="client-testimonial">
+							<div class="pic">
+								<img src="assets/img/can-2.png" alt="">
+							</div>
+							<p class="client-description">
+								I found new project in my area within days after signing up! Great service and amazing opportunities.
+							</p>
+							<h3 class="client-testimonial-title">Eric Lopez</h3>
+							<ul class="client-testimonial-rating">
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+							</ul>
+						</div>
+						
+						<div class="client-testimonial">
+							<div class="pic">
+								<img src="assets/img/can-3.png" alt="">
+							</div>
+							<p class="client-description">
+								I love the service this platform offers! I had my first project last week and working with the workspace on Flyby saved me a lot of time.
+							</p>
+							<h3 class="client-testimonial-title">Lara Simpson</h3>
+							<ul class="client-testimonial-rating">
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+							</ul>
+						</div>
+						
+						<div class="client-testimonial">
+							<div class="pic">
+								<img src="assets/img/can-4.png" alt="">
+							</div>
+							<p class="client-description">
+								Our company used to have a hard time finding drone pilots for projects that were in different locations in Europe. Flyby made our life a lot easier!
+							</p>
+							<h3 class="client-testimonial-title">Adam Naaktgeboren</h3>
+							<ul class="client-testimonial-rating">
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+								<li class="fa fa-star"></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="clearfix"></div>
-			<!-- Main Banner Section End -->
-			
-			<!-- bottom form section start -->
-			<section class="bottom-search-form">
-				<div class="container">
-					<form class="bt-form">
-						<div class="col-md-4 col-sm-6">
-							<input type="text" class="form-control" placeholder="Skills, Designations, Keyword">
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<select class="form-control">
-							  <option>Search By Exp.</option>
-							  <option>1 Year</option>
-							  <option>2 Year</option>
-							  <option>3 Year</option>
-							  <option>4 Year</option>
-							</select>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<input type="text" class="form-control" id="joblist" placeholder="Companies">
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<select id="choose-category" class="form-control">
-								<option>Job Category</option>
-								<option>Education & Trainee</option>
-								<option>Sales & Marketing</option>
-								<option>Automotive Jobs</option>
-								<option>Health & Medical</option>
-								<option>Design & Development</option>
-								<option>Book Services</option>
-							</select>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<select id="choose-city" class="form-control">
-								<option>Choose City</option>
-								<option>Chandigarh</option>
-								<option>London</option>
-								<option>England</option>
-								<option>Pratapcity</option>
-								<option>Ukrain</option>
-								<option>Wilangana</option>
-							</select>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<button type="submit" class="btn btn-primary">Search Job</button>
-						</div>
-					</form>
-				</div>
-			</section>
-			<!-- Bottom Search Form Section End -->
-			
-			<!-- Jobs By Category Start-->
-			<section>
-				<div class="container">
-				
-				  <div class="row">
-						<div class="main-heading">
-							<h2>Browse Jobs By <span>Category</span></h2>
-						</div>
-				   </div>
+		</section>
+		<!-- testimonial section End -->
+	
 
-				   <div class="row">
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-bargraph" aria-hidden="true"></i>
-										<i class="icon-bargraph abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Accounting & Finance</a></h4>
-										<p>122 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-tools-2" aria-hidden="true"></i>
-										<i class="icon-tools-2 abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Automotive Jobs</a></h4>
-										<p>155 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-briefcase" aria-hidden="true"></i>
-										<i class="icon-briefcase abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Business</a></h4>
-										<p>300 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-edit" aria-hidden="true"></i>
-										<i class="icon-edit abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Education Training</a></h4>
-										<p>80 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-heart" aria-hidden="true"></i>
-										<i class="icon-heart abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Healthcare</a></h4>
-										<p>120 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-wine" aria-hidden="true"></i>
-										<i class="icon-wine abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Restaurant & Food</a></h4>
-										<p>78 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-map" aria-hidden="true"></i>
-										<i class="icon-map abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Transportation</a></h4>
-										<p>90 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-3 col-sm-6">
-							<div class="category-box" data-aos="fade-up">
-								<div class="category-desc">
-									<div class="category-icon">
-										<i class="icon-desktop" aria-hidden="true"></i>
-										<i class="icon-desktop abs-icon" aria-hidden="true"></i>
-									</div>
-
-									<div class="category-detail category-desc-text">
-										<h4> <a href="browse-jobs-grid.html">Telecommunications</a></h4>
-										<p>210 Jobs</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-			</section>
-			<!-- Job By Category End-->
-			
-			<!-- video section Start -->
-			<section class="video-sec dark" id="video" style="background-image:url(http://via.placeholder.com/1920x850);">
-				<div class="container">
-					<div class="row">
-						<div class="main-heading">
-							<p>Best For Your Projects</p>
-							<h2>Watch Our <span>video</span></h2>
-						</div>
-					</div>
-					<!--/row-->
-					<div class="video-part">
-						<a href="#" data-toggle="modal" data-target="#my-video" class="video-btn"><i class="fa fa-play"></i></a>
-					</div>
-				</div>
-			</section>
-			<!-- video section Start -->
-			
-
-			<!-- ====================== 1 How It Work ================= -->
-			<section class="how-it-works">
-				<div class="container">
-					
-					<div class="row" data-aos="fade-up">
-						<div class="col-md-12">
-							<div class="main-heading">
-								<p>Working Process</p>
-								<h2>How It <span>Works</span></h2>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-					
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-1.png" class="img-responsive" alt="" />
-									<span class="process-num">01</span>
-								</span>
-								<h4>Create An Account</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-2.png" class="img-responsive" alt="" />
-									<span class="process-num">02</span>
-								</span>
-								<h4>Search Jobs</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-3.png" class="img-responsive" alt="" />
-									<span class="process-num">03</span>
-								</span>
-								<h4>Save & Apply</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-			</section>
-			<div class="clearfix"></div>
-			<!-- ====================== 1 How It Work END ================= -->
-			
-			<!-- ====================== 2 How It Work ================= -->
-			<section class="how-it-works">
-				<div class="container">
-					
-					<div class="row" data-aos="fade-up">
-						<div class="col-md-12">
-							<div class="main-heading">
-								<p>Working Process</p>
-								<h2>How It <span>Works</span></h2>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-					
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-1.png" class="img-responsive" alt="" />
-									<span class="process-num">01</span>
-								</span>
-								<h4>Create An Account</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-2.png" class="img-responsive" alt="" />
-									<span class="process-num">02</span>
-								</span>
-								<h4>Search Jobs</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-						<div class="col-md-4 col-sm-4">
-							<div class="working-process">
-								<span class="process-img">
-									<img src="assets/img/step-3.png" class="img-responsive" alt="" />
-									<span class="process-num">03</span>
-								</span>
-								<h4>Save & Apply</h4>
-								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-			</section>
-			<div class="clearfix"></div>
-			<!-- ====================== 2 How It Work END ================= -->
-
-			<!-- start Call To Action section -->
-			<div class="clearfix"></div>
-			<section class="call-to-act">
-				<div class="container-fluid">
-				
-					<div class="col-md-6 col-sm-6 no-padd bl-dark">
-						<div class="call-to-act-caption">
-							<h2>We Are Expert In Web design and development</h2>
-							<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</h3>
-							<a href="#" class="btn bat-call-to-act">Hire Us</a>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-sm-6 no-padd gr-dark">
-						<div class="call-to-act-caption">
-							<h2>We Are Expert In Web design and development</h2>
-							<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</h3>
-							<a href="#" class="btn bat-call-to-act">Join Us</a>
-						</div>
-					</div>
-					
-				</div>
-			</section>
-			<!-- Call To Action section End -->
-
-			<!-- start testimonial section -->
-			<div class="clearfix"></div>
-			<section class="testimonial" id="testimonial">
-				<div class="container">
-					<div class="row">
-						<div class="main-heading">
-							<p>What Say Our Client</p>
-							<h2>Our Success <span>Stories</span></h2>
-						</div>
-					</div>
-					<!--/row-->
-					
-					<div class="row">
-						<div id="client-testimonial-slider" class="owl-carousel">
-							<div class="client-testimonial">
-								<div class="pic">
-									<img src="http://via.placeholder.com/150x150" alt="">
-								</div>
-								<p class="client-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
-								</p>
-								<h3 class="client-testimonial-title">Lacky Mole</h3>
-								<ul class="client-testimonial-rating">
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star"></li>
-								</ul>
-							</div>
-
-							<div class="client-testimonial">
-								<div class="pic">
-									<img src="http://via.placeholder.com/150x150" alt="">
-								</div>
-								<p class="client-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
-								</p>
-								<h3 class="client-testimonial-title">Karan Wessi</h3>
-								<ul class="client-testimonial-rating">
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star"></li>
-									<li class="fa fa-star"></li>
-								</ul>
-							</div>
-							
-							<div class="client-testimonial">
-								<div class="pic">
-									<img src="http://via.placeholder.com/150x150" alt="">
-								</div>
-								<p class="client-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
-								</p>
-								<h3 class="client-testimonial-title">Roul Pinchai</h3>
-								<ul class="client-testimonial-rating">
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star"></li>
-								</ul>
-							</div>
-							
-							<div class="client-testimonial">
-								<div class="pic">
-									<img src="http://via.placeholder.com/150x150" alt="">
-								</div>
-								<p class="client-description">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
-								</p>
-								<h3 class="client-testimonial-title">Adam Jinna</h3>
-								<ul class="client-testimonial-rating">
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star-o"></li>
-									<li class="fa fa-star"></li>
-								</ul>
-							</div>
+		<!-- Download app Section Start -->
+		<section class="download-app gray-bg">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+						<div class="app-content">
+							<h2>Download Our App Today!</h2>
+							<p>Do you want to use Flyby everywhere with just one click? Download our app to enjoy our Flyby mobile native application with even more functionalities! </p>
+							<a href="#" class="btn call-btn"><i class="fa fa-apple"></i>App Store</a>
+							<a href="#" class="btn call-btn gps"><i class="fa fa-android"></i>Android</a>
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- testimonial section End -->
+				<!--/row-->
+			</div>
+		</section>
+		<div class="clearfix"></div>
+		<!-- Download app Section End -->
 		
-
-			<!-- Download app Section Start -->
-			<section class="download-app gray-bg">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-							<div class="app-content">
-								<h2>Download Our Best Apps</h2>
-								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
-								<a href="#" class="btn call-btn"><i class="fa fa-apple"></i>iPhone Store</a>
-								<a href="#" class="btn call-btn gps"><i class="fa fa-android"></i>Google Store</a>
+		<!-- ============================ Call To Action ================================== -->
+		<section class="theme-bg call-to-act-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						
+						<div class="call-to-act">
+							<div class="call-to-act-head">
+								<h3>Want to subscribe to our newsletter?</h3>
+								<span>We'll share the latest drone news with you.</span>
 							</div>
+							<a data-toggle="modal" data-target="#signup" href="#" class="btn btn-call-to-act">Subscribe</a>
 						</div>
-					</div>
-					<!--/row-->
-				</div>
-			</section>
-			<div class="clearfix"></div>
-			<!-- Download app Section End -->
-			
-			<!-- ============================ Call To Action ================================== -->
-			<section class="theme-bg call-to-act-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							
-							<div class="call-to-act">
-								<div class="call-to-act-head">
-									<h3>Want to Become a Success Employers?</h3>
-									<span>We'll help you to grow your career and growth.</span>
-								</div>
-								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-							</div>
-							
-						</div>
+						
 					</div>
 				</div>
-			</section>
-			<!-- ============================ Call To Action End ================================== -->
+			</div>
+		</section>
+		<!-- ============================ Call To Action End ================================== -->
 
 {% endblock %}
