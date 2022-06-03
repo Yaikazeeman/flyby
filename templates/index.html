@@ -1,0 +1,488 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+			<!-- Main Banner Section Start -->
+			<div class="simple-banner" style="background-image:url(http://via.placeholder.com/1920x850);">  
+				<!-- Wrapper for carousel items -->
+				<div class="container">
+					<div class="simple-banner-caption">
+							<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 banner-text">
+								<h3>We Are Available On</h3>
+								<h1>Job <span>Stock</span></h1>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<!-- Main Banner Section End -->
+			
+			<!-- bottom form section start -->
+			<section class="bottom-search-form">
+				<div class="container">
+					<form class="bt-form">
+						<div class="col-md-4 col-sm-6">
+							<input type="text" class="form-control" placeholder="Skills, Designations, Keyword">
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<select class="form-control">
+							  <option>Search By Exp.</option>
+							  <option>1 Year</option>
+							  <option>2 Year</option>
+							  <option>3 Year</option>
+							  <option>4 Year</option>
+							</select>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<input type="text" class="form-control" id="joblist" placeholder="Companies">
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<select id="choose-category" class="form-control">
+								<option>Job Category</option>
+								<option>Education & Trainee</option>
+								<option>Sales & Marketing</option>
+								<option>Automotive Jobs</option>
+								<option>Health & Medical</option>
+								<option>Design & Development</option>
+								<option>Book Services</option>
+							</select>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<select id="choose-city" class="form-control">
+								<option>Choose City</option>
+								<option>Chandigarh</option>
+								<option>London</option>
+								<option>England</option>
+								<option>Pratapcity</option>
+								<option>Ukrain</option>
+								<option>Wilangana</option>
+							</select>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<button type="submit" class="btn btn-primary">Search Job</button>
+						</div>
+					</form>
+				</div>
+			</section>
+			<!-- Bottom Search Form Section End -->
+			
+			<!-- Jobs By Category Start-->
+			<section>
+				<div class="container">
+				
+				  <div class="row">
+						<div class="main-heading">
+							<h2>Browse Jobs By <span>Category</span></h2>
+						</div>
+				   </div>
+
+				   <div class="row">
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-bargraph" aria-hidden="true"></i>
+										<i class="icon-bargraph abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Accounting & Finance</a></h4>
+										<p>122 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-tools-2" aria-hidden="true"></i>
+										<i class="icon-tools-2 abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Automotive Jobs</a></h4>
+										<p>155 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-briefcase" aria-hidden="true"></i>
+										<i class="icon-briefcase abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Business</a></h4>
+										<p>300 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-edit" aria-hidden="true"></i>
+										<i class="icon-edit abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Education Training</a></h4>
+										<p>80 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-heart" aria-hidden="true"></i>
+										<i class="icon-heart abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Healthcare</a></h4>
+										<p>120 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-wine" aria-hidden="true"></i>
+										<i class="icon-wine abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Restaurant & Food</a></h4>
+										<p>78 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-map" aria-hidden="true"></i>
+										<i class="icon-map abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Transportation</a></h4>
+										<p>90 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6">
+							<div class="category-box" data-aos="fade-up">
+								<div class="category-desc">
+									<div class="category-icon">
+										<i class="icon-desktop" aria-hidden="true"></i>
+										<i class="icon-desktop abs-icon" aria-hidden="true"></i>
+									</div>
+
+									<div class="category-detail category-desc-text">
+										<h4> <a href="browse-jobs-grid.html">Telecommunications</a></h4>
+										<p>210 Jobs</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			<!-- Job By Category End-->
+			
+			<!-- video section Start -->
+			<section class="video-sec dark" id="video" style="background-image:url(http://via.placeholder.com/1920x850);">
+				<div class="container">
+					<div class="row">
+						<div class="main-heading">
+							<p>Best For Your Projects</p>
+							<h2>Watch Our <span>video</span></h2>
+						</div>
+					</div>
+					<!--/row-->
+					<div class="video-part">
+						<a href="#" data-toggle="modal" data-target="#my-video" class="video-btn"><i class="fa fa-play"></i></a>
+					</div>
+				</div>
+			</section>
+			<!-- video section Start -->
+			
+
+			<!-- ====================== 1 How It Work ================= -->
+			<section class="how-it-works">
+				<div class="container">
+					
+					<div class="row" data-aos="fade-up">
+						<div class="col-md-12">
+							<div class="main-heading">
+								<p>Working Process</p>
+								<h2>How It <span>Works</span></h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+					
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-1.png" class="img-responsive" alt="" />
+									<span class="process-num">01</span>
+								</span>
+								<h4>Create An Account</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-2.png" class="img-responsive" alt="" />
+									<span class="process-num">02</span>
+								</span>
+								<h4>Search Jobs</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-3.png" class="img-responsive" alt="" />
+									<span class="process-num">03</span>
+								</span>
+								<h4>Save & Apply</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			<div class="clearfix"></div>
+			<!-- ====================== 1 How It Work END ================= -->
+			
+			<!-- ====================== 2 How It Work ================= -->
+			<section class="how-it-works">
+				<div class="container">
+					
+					<div class="row" data-aos="fade-up">
+						<div class="col-md-12">
+							<div class="main-heading">
+								<p>Working Process</p>
+								<h2>How It <span>Works</span></h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+					
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-1.png" class="img-responsive" alt="" />
+									<span class="process-num">01</span>
+								</span>
+								<h4>Create An Account</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-2.png" class="img-responsive" alt="" />
+									<span class="process-num">02</span>
+								</span>
+								<h4>Search Jobs</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+						<div class="col-md-4 col-sm-4">
+							<div class="working-process">
+								<span class="process-img">
+									<img src="assets/img/step-3.png" class="img-responsive" alt="" />
+									<span class="process-num">03</span>
+								</span>
+								<h4>Save & Apply</h4>
+								<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+			<div class="clearfix"></div>
+			<!-- ====================== 2 How It Work END ================= -->
+
+			<!-- start Call To Action section -->
+			<div class="clearfix"></div>
+			<section class="call-to-act">
+				<div class="container-fluid">
+				
+					<div class="col-md-6 col-sm-6 no-padd bl-dark">
+						<div class="call-to-act-caption">
+							<h2>We Are Expert In Web design and development</h2>
+							<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</h3>
+							<a href="#" class="btn bat-call-to-act">Hire Us</a>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-sm-6 no-padd gr-dark">
+						<div class="call-to-act-caption">
+							<h2>We Are Expert In Web design and development</h2>
+							<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</h3>
+							<a href="#" class="btn bat-call-to-act">Join Us</a>
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			<!-- Call To Action section End -->
+
+			<!-- start testimonial section -->
+			<div class="clearfix"></div>
+			<section class="testimonial" id="testimonial">
+				<div class="container">
+					<div class="row">
+						<div class="main-heading">
+							<p>What Say Our Client</p>
+							<h2>Our Success <span>Stories</span></h2>
+						</div>
+					</div>
+					<!--/row-->
+					
+					<div class="row">
+						<div id="client-testimonial-slider" class="owl-carousel">
+							<div class="client-testimonial">
+								<div class="pic">
+									<img src="http://via.placeholder.com/150x150" alt="">
+								</div>
+								<p class="client-description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
+								</p>
+								<h3 class="client-testimonial-title">Lacky Mole</h3>
+								<ul class="client-testimonial-rating">
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star"></li>
+								</ul>
+							</div>
+
+							<div class="client-testimonial">
+								<div class="pic">
+									<img src="http://via.placeholder.com/150x150" alt="">
+								</div>
+								<p class="client-description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
+								</p>
+								<h3 class="client-testimonial-title">Karan Wessi</h3>
+								<ul class="client-testimonial-rating">
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star"></li>
+									<li class="fa fa-star"></li>
+								</ul>
+							</div>
+							
+							<div class="client-testimonial">
+								<div class="pic">
+									<img src="http://via.placeholder.com/150x150" alt="">
+								</div>
+								<p class="client-description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
+								</p>
+								<h3 class="client-testimonial-title">Roul Pinchai</h3>
+								<ul class="client-testimonial-rating">
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star"></li>
+								</ul>
+							</div>
+							
+							<div class="client-testimonial">
+								<div class="pic">
+									<img src="http://via.placeholder.com/150x150" alt="">
+								</div>
+								<p class="client-description">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor et dolore magna aliqua.
+								</p>
+								<h3 class="client-testimonial-title">Adam Jinna</h3>
+								<ul class="client-testimonial-rating">
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star-o"></li>
+									<li class="fa fa-star"></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- testimonial section End -->
+		
+
+			<!-- Download app Section Start -->
+			<section class="download-app gray-bg">
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+							<div class="app-content">
+								<h2>Download Our Best Apps</h2>
+								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi.</p>
+								<a href="#" class="btn call-btn"><i class="fa fa-apple"></i>iPhone Store</a>
+								<a href="#" class="btn call-btn gps"><i class="fa fa-android"></i>Google Store</a>
+							</div>
+						</div>
+					</div>
+					<!--/row-->
+				</div>
+			</section>
+			<div class="clearfix"></div>
+			<!-- Download app Section End -->
+			
+			<!-- ============================ Call To Action ================================== -->
+			<section class="theme-bg call-to-act-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							
+							<div class="call-to-act">
+								<div class="call-to-act-head">
+									<h3>Want to Become a Success Employers?</h3>
+									<span>We'll help you to grow your career and growth.</span>
+								</div>
+								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- ============================ Call To Action End ================================== -->
+
+{% endblock %}

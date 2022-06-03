@@ -1,0 +1,125 @@
+img.profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+img.search {
+    width: 30px;
+    height: 30px;
+}
+
+#tweet {
+    width: 50%;
+    margin: 2% 0;
+}
+
+.user{
+    margin: 2% 0;
+    padding: 1%;
+    width: 40%;
+    border: 1px solid gray;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fcf9f9;
+    box-shadow: 2px 3px 10px #888888;;
+
+}
+
+.follow{
+    align-self: flex-end;
+}
+
+#message_form{
+    display: flex;
+    flex-direction: column;
+}
+
+form button{
+    margin: 1em 0;
+}
+
+
+
+.message-container{
+    width: 50%;
+}
+
+.flex{
+    display: flex;
+}
+
+.to{
+    justify-content: end;
+}
+
+.messagepage-containers{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.start-chat-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.start-chat-button button{
+    width: 30%;
+}
+
+.list{
+    width: 100%;
+}
+
+.new-chat-box{
+    width: 40%;
+}
+
+.new-chat-box form{
+    width: 100%;
+}
+
+.users-container{
+    width: 40%;
+}
+
+.textbox{
+    margin: 5% 0;
+}
+
+.message{
+    margin: 2%;
+
+}
+
+.message p{
+    margin-left: 1em;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 2%;
+}
+
+.to p{
+    background-color: #f8e896;
+}
+
+.from p{
+    background-color: #A8DDFD;
+}
+
+.direct-message-text{
+    width: 40%;
+}
+
+.direct-message-form{
+    display: flex;
+    margin-top: 5%;
+    padding: 0;
+}
+
+.btn-directm{
+margin: auto 5%;
+}

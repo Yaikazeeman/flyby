@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Search page</h1>
+
+<form action="/search" method="POST">
+    <input type="text" name="keyword" id="keyword" placeholder="Search Tweet">
+    <img class="search" src="https://th.bing.com/th/id/R.a8b4023da5b179889f8a8303c9052827?rik=bnXWCGPNZ7BlKg&riu=http%3a%2f%2fwww.newdesignfile.com%2fpostpic%2f2011%2f11%2fwhite-search-icon_27176.png&ehk=GUrr%2fqoDq9LEMSNx4FwNcC%2fUhHuF%2bR0EAEF7iXcJYfs%3d&risl=&pid=ImgRaw&r=0" alt="search icon">
+</form>
+
+{% if tweets %}
+    {% for tweet in tweets%}
+        <div class="tweet">
+            <img src="{{tweet[2]}}" alt="image for {{tweet[1]}}" class="profile">
+            <span><a href="{{url_for('user_detail', user_id=tweet[1])}}">{{tweet[3]}}</a>: {{tweet[0]}}</span>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

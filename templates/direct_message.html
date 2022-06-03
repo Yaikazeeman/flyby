@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Chat with {{user[1]}} </h1>
+
+<div class="message-container">
+{% for message in messages %}
+        {% if message[1] == user[0] %}
+        <div class="flex message from">
+            <img src="{{user[2]}}" alt="image for {{user[1]}}" class="profile">
+            <p>{{message[0]}}</p>
+        </div>
+        {% else %}
+        <div class="flex message to">
+            <p class="own-message">{{message[0]}}</p>
+            <!-- <img src="{{self[1]}}" alt="image for {{self[0]}}" class="profile"> -->
+        </div>
+        {% endif %}
+
+{% endfor %}
+</div>
+
+<form class="direct-message-form" action="/sent_message" method="POST">
+    <input type="hidden" name="to_id" value="{{user[0]}}" />
+    <textarea class="form-control direct-message-text" name="message" id="message" placeholder="Sent message to "></textarea>
+    <button class="w-20 btn btn-lg btn-primary btn-directm" type="submit">Send!</button>
+</form>
+{% endblock %}

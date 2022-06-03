@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>All users</h1>
+{% for user in users %}
+<div class="user">
+  <div>
+    <img src="{{user[2]}}" alt="image for {{user[1]}}" class="profile">
+    <a href="{{url_for('user_detail', user_id=user[0])}}">{{user[1]}}</a> 
+  </div>
+  <a class="btn btn-primary follow" href="{{url_for('follow', followee=user[0])}}">follow</a>
+</div>
+{% endfor %}
+{% endblock %}
