@@ -2,19 +2,32 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
 
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "this is not secret, remember, change it!"
-engine = create_engine("sqlite:///flyby.db")
+tweeter = Flask(__name__)
+tweeter.config["SECRET_KEY"] = "this is not secret, remember, change it!"
+engine = create_engine("sqlite:///tweeter.db")
 
-@app.route("/")
+@tweeter.route("/")
 def index():
-    return render_template("index.html")
+    tweets = []
+    if "username" in session:
+        query = f"""
+        SELECT u.id, u.picture, u.username, t.tweet
+        FROM tweets t
+        INNER JOIN users u ON t.user_id=u.id
+        INNER JOIN follows f ON f.followee_id=u.id
+        WHERE f.follower_id={session['user_id']}
+        """
 
-@app.route("/register")
+        with engine.connect() as connection:
+            tweets = connection.execute(query).fetchall()
+
+    return render_template("index.html", tweets=tweets)
+
+@tweeter.route("/register")
 def register():
     return render_template("register.html")
 
-@app.route("/register", methods=["POST"])
+@tweeter.route("/register", methods=["POST"])
 def handle_register():
     username=request.form["username"]
     password=request.form["password"]
@@ -33,7 +46,7 @@ def handle_register():
         return redirect(url_for("index"))
 
 
-@app.route("/browse_pilots")
+@tweeter.route("/users")
 def users():
     query = """
     SELECT id, username, picture
@@ -43,10 +56,10 @@ def users():
     with engine.connect() as connection:
         users = connection.execute(query)
 
-        return render_template("browse_pilots.html", users=users)
+        return render_template("users.html", users=users)
 
 
-@app.route("/users/<user_id>")
+@tweeter.route("/users/<user_id>")
 def user_detail(user_id):
     query = f"""
     SELECT id, username, picture
@@ -69,11 +82,11 @@ def user_detail(user_id):
         else:
             return render_template("404.html"), 404
 
-@app.route("/login")
+@tweeter.route("/login")
 def login():
     return render_template("login.html")
 
-@app.route("/login", methods=["POST"])
+@tweeter.route("/login", methods=["POST"])
 def handle_login():
     username=request.form["username"]
     password=request.form["password"]
@@ -94,7 +107,7 @@ def handle_login():
         else:
             return render_template("404.html"), 404
 
-@app.route("/logout")
+@tweeter.route("/logout")
 def logout():
     session.pop("username")
     session.pop("user_id")
@@ -102,7 +115,7 @@ def logout():
     return redirect(url_for("index"))
 
 
-@app.route("/tweet", methods=["POST"])
+@tweeter.route("/tweet", methods=["POST"])
 def handle_tweet():
     tweet=request.form["tweet"]
 
@@ -116,7 +129,7 @@ def handle_tweet():
 
         return redirect(url_for("index"))
 
-@app.route("/follow/<followee>")
+@tweeter.route("/follow/<followee>")
 def follow(followee):
     if "user_id" not in session:
         return render_template("403.html"), 403    
@@ -133,11 +146,11 @@ def follow(followee):
 
             return redirect(url_for("index"))
 
-@app.route("/search")
+@tweeter.route("/search")
 def search():
     return render_template("search.html")
 
-@app.route("/search", methods = ["POST"])
+@tweeter.route("/search", methods = ["POST"])
 def search_keyword():
     keyword = request.form["keyword"]
 
@@ -153,7 +166,7 @@ def search_keyword():
         return render_template("search.html", tweets=tweets)
 
 
-@app.route("/messages")
+@tweeter.route("/messages")
 def messages():
     if "user_id" not in session:
         return render_template("403.html"), 403    
@@ -183,7 +196,7 @@ def messages():
             return render_template("messages.html", messengers=messengers, users=users)
 
 
-@app.route("/direct_messages/<user_id>")
+@tweeter.route("/direct_messages/<user_id>")
 def direct_messages(user_id):
     query = f"""
     SELECT id, username, picture
@@ -214,7 +227,7 @@ def direct_messages(user_id):
         else:
             return render_template("404.html"), 404
 
-@app.route("/sent_message", methods=["POST"])
+@tweeter.route("/sent_message", methods=["POST"])
 def handle_sent_message():
     print(request.form)
     message = request.form["message"]
@@ -230,4 +243,4 @@ def handle_sent_message():
 
         return redirect(url_for("direct_messages",user_id=to_id))
 
-app.run(debug=True)
+tweeter.run(debug=True)

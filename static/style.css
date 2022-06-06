@@ -1,0 +1,13 @@
+.register-page{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.register-page form{
+    width: 60%;
+    margin: 10% auto;
+}

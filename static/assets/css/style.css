@@ -133,9 +133,107 @@ Fonts
     background:url(../img/loader.gif) center no-repeat #ffffff;
 }
 
+
+/* ==========================================================================
+Personalization by flyby team
+========================================================================== */
+
+.logo-nav a{
+    height: 80%;
+}
+
+.container-sizing{
+    height: 75vh !important;
+}
+
+.container-sizing div{
+    height: 100%;
+}
+
+.banner-pilot div{
+    min-height:100%;
+    background:url(../img/banner-company.jpg) rgba(31, 18, 88, 0.6);
+    background-size:cover;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.banner-company div{
+    min-height:100%;
+    background:url(../img/banner-pilot2.jpg) rgba(57, 95, 171, 0.6);
+    background-size:cover;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.banner-btn{
+    background-color: #002758 !important;
+    width: 40%;
+    align-self: center;
+}
+
+
+.two-window-sizing div div{
+    padding: 5%;
+}
+
+.footer-flex{
+    display: flex;
+}
+
+.address-div{
+    width: 40%;
+}
+
+.footer-add{
+    justify-content: space-between;
+}
+
+.footer-app-div{
+    margin: 0 5%;
+}
+
+.footer-app-div div div a{
+    margin: 0 3%;
+}
+
+.in-dev-section{
+    height: 100vh;
+}
+
+.in-dev-section div{
+    width: 80%;
+    height: 30%;
+    margin: 10% auto;
+}
+
+
+.text-div h2{
+    color: white;
+}
+
+.text-div h4{
+    color: white;
+}
+
+.links-footer{
+    margin: auto 0 auto 10%;
+    justify-content: space-around;
+}
+
 /* ==========================================================================
 General Setting
 ========================================================================== */
+
+
 html,body {
 width:100%;
 height: auto;
@@ -163,7 +261,7 @@ h3 {font-size: 25px}
 h4 { font-size: 16px;}
 p {
     position: relative;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     line-height: 23px;
     -webkit-transition: .2s ease-in;
     -moz-transition: .2s ease-in;
@@ -606,7 +704,7 @@ html body .br-gary{
 	border-color:#e2e5e8 !important;
 }
 html body .br-default{
-	border-color:#283447 !important;#e2e5e8
+	border-color:#283447 !important;
 }
 /*------------ Global Settings: Status BG Style --------------*/
 html body .bg-online{
