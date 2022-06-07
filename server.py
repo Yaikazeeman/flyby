@@ -1,10 +1,25 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "this is not secret, remember, change it!"
-engine = create_engine("sqlite:///flyby.db")
+
+
+# Google Cloud SQL (change this accordingly)
+PASSWORD ="capstone"
+PUBLIC_IP_ADDRESS ="34.79.169.36"
+DBNAME ="flyby_database"
+PROJECT_ID ="flyby-capstone"
+INSTANCE_NAME ="flyby-capstone:europe-west1:flyby-capstone-database"
+SQLALCHEMY_DATABASE_URI = f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket=/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
+ 
+# configuration
+app.config["SECRET_KEY"] = "bSkb22Tr+YaTLDtaIVtoui99n8KPVeDxLtil/A2Q"
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+
+engine = create_engine(SQLALCHEMY_DATABASE_URI)
 
 @app.route("/")
 def index():
@@ -32,42 +47,120 @@ def handle_register():
 
         return redirect(url_for("index"))
 
+@app.route("/register_pilot", methods=["POST"])
+def handle_register_pilot():
+    first_name=request.form["first_name"]
+    password=request.form["password"]
+    picture=request.form["profile_url"]
+
+    hashed_password = generate_password_hash(password)
+
+    insert_query = f"""
+    INSERT INTO PILOT_DATA4(first_name, profile_url, password)
+    VALUES ('{first_name}', '{picture}', '{hashed_password}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("index"))
+
+################################# start pilot part
 
 @app.route("/browse_pilots")
-def users():
+def browse_pilots():
     query = """
-    SELECT id, username, picture
-    FROM users
+    SELECT _id, first_name, profile_url
+    FROM PILOT_DATA4
     """
 
     with engine.connect() as connection:
-        users = connection.execute(query)
+        pilots = connection.execute(query)
 
-        return render_template("browse_pilots.html", users=users)
+        return render_template("browse_pilots.html", pilots=pilots)
 
 
-@app.route("/users/<user_id>")
-def user_detail(user_id):
+@app.route("/pilots/<pilot_id>")
+def pilot_detail(pilot_id):
     query = f"""
-    SELECT id, username, picture
-    FROM users
-    where id={user_id}
+    SELECT _id, first_name, profile_url
+    FROM PILOT_DATA4
+    where _id={pilot_id}
     """
-
-    tweets_query = f"""
-    SELECT tweet
-    FROM tweets
-    WHERE user_id={user_id}
-    """
-
     with engine.connect() as connection:
-        user = connection.execute(query).fetchone()
-        tweets = connection.execute(tweets_query).fetchall()
+        pilot = connection.execute(query).fetchone()
 
-        if user:
-            return render_template("user_detail.html", user=user, tweets=tweets)
+        if pilot:
+            return render_template("pilot_detail.html", pilot=pilot)
         else:
             return render_template("404.html"), 404
+
+################################################### end pilot part
+
+################################################## start company part
+
+
+@app.route("/browse_companies")
+def browse_companies():
+    query = """
+    SELECT _id, first_name, profile_url
+    FROM COMPANY_DATA4
+    """
+
+    with engine.connect() as connection:
+        companies = connection.execute(query)
+
+        return render_template("browse_companies.html", companies=companies)
+
+@app.route("/companies/<company_id>")
+def company_detail(company_id):
+    query = f"""
+    SELECT _id, first_name, profile_url
+    FROM COMPANY_DATA4
+    where _id={company_id}
+    """
+    with engine.connect() as connection:
+        company = connection.execute(query).fetchone()
+
+        if company:
+            return render_template("company_detail.html", company=company)
+        else:
+            return render_template("404.html"), 404
+
+######################################################## end company part
+
+######################################################## start project part
+
+
+
+@app.route("/browse_projects")
+def browse_projects():
+    query = """
+    SELECT _id, first_name, profile_url
+    FROM PROJECT_DATA4
+    """
+
+    with engine.connect() as connection:
+        projects = connection.execute(query)
+
+        return render_template("browse_projects.html", projects=projects)
+
+@app.route("/projects/<project_id>")
+def project_detail(project_id):
+    query = f"""
+    SELECT _id, first_name, profile_url
+    FROM PROJECT_DATA4
+    where _id={project_id}
+    """
+    with engine.connect() as connection:
+        project = connection.execute(query).fetchone()
+
+        if project:
+            return render_template("project_detail.html", project=project)
+        else:
+            return render_template("404.html"), 404
+
+############################################################# end project part
 
 @app.route("/login")
 def login():

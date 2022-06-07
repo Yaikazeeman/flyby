@@ -47,19 +47,19 @@
 					
 					<!--Browse Job In Grid-->
 					<div class="row extra-mrg">
-						{% for user in users %}
+						{% for pilot in pilots %}
 						<div class="col-md-4 col-sm-4">
 							<div class="manage-cndt">
 								<div class="cndt-status pending">Pending</div>
 								<div class="cndt-caption">
 									<div class="cndt-pic">
-										<img src="{{user[2]}}" class="img-responsive" alt="" />
+										<img src="{{pilot[2]}}" class="img-responsive" alt="" />
 									</div>
-									<h4>{{user[1]}}</h4>
+									<h4>{{pilot[1]}}</h4>
 									<span>Drone pilot</span>
 									<p>Areal videograpy, Editing, Mapping services </p>
 								</div>
-								<a href="#" title="" class="cndt-profile-btn">View Profile</a>
+								<a href="/pilots/{{pilot[0]}}" title="" class="cndt-profile-btn">View Profile</a>
 							</div>
 						</div>
 						{% endfor %}
