@@ -7,7 +7,7 @@
 			<!-- Title Header Start -->
 			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
 				<div class="container">
-					<h1>Browse Drone Pilots</h1>
+					<h1>Browse Projects</h1>
 				</div>
 			</section>
 			<div class="clearfix"></div>
@@ -49,19 +49,23 @@
 					
 					<!--Browse Job In Grid-->
 					<div class="row extra-mrg">
-						{% for user in users %}
-						<div class="col-md-4 col-sm-4">
-							<div class="manage-cndt">
-								<div class="cndt-status pending">Pending</div>
-								<div class="cndt-caption">
-									<div class="cndt-pic">
-										<img src="{{user[2]}}" class="img-responsive" alt="" />
-									</div>
-									<h4>{{user[1]}}</h4>
-									<span>Drone pilot</span>
-									<p>Areal videograpy, Editing, Mapping services </p>
+						{% for project in projects %}
+						<div class="candidate-list-layout">
+							<div class="cll-wrap">
+								<div class="cll-thumb">
+									<a href="company-detail.html"><img src="assets/img/com-1.jpg" class="img-responsive" alt="" /></a>
 								</div>
-								<a href="#" title="" class="cndt-profile-btn">View Profile</a>
+								<div class="cll-caption">
+									<h4><a href="company-detail.html">{{project[1]}}</a><span><i class="ti-briefcase"></i>{{project[4]}}</span></h4>
+									<ul>
+										<li><i class="ti-location-pin cl-danger"></i>{{project[2]}}, {{project[3]}}</li>
+										<li><i class="ti-medall cl-success"></i>{{project[5]}}</li>
+									</ul>
+								</div>
+							</div>
+							
+							<div class="cll-right">
+								<a href="/projects/{{project[0]}}" class="btn btn-opening">Still available</a>
 							</div>
 						</div>
 						{% endfor %}

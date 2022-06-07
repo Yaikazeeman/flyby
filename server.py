@@ -85,7 +85,7 @@ def pilot_detail(pilot_id):
     query = f"""
     SELECT id, first_name, profile_url
     FROM PILOT_DATA4
-    where _id={pilot_id}
+    where id={pilot_id}
     """
     with engine.connect() as connection:
         pilot = connection.execute(query).fetchone()
@@ -136,7 +136,7 @@ def company_detail(company_id):
 @app.route("/browse_projects")
 def browse_projects():
     query = """
-    SELECT _id, first_name, profile_url
+    SELECT id, project_name, country, city, services, start_date
     FROM PROJECT_DATA4
     """
 
@@ -148,9 +148,9 @@ def browse_projects():
 @app.route("/projects/<project_id>")
 def project_detail(project_id):
     query = f"""
-    SELECT _id, first_name, profile_url
+    SELECT id, project_name, contact_email, country, city, description, services, certification, project_duration_days, start_date, years_of_experience
     FROM PROJECT_DATA4
-    where _id={project_id}
+    where id={project_id}
     """
     with engine.connect() as connection:
         project = connection.execute(query).fetchone()
