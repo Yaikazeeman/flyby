@@ -70,7 +70,7 @@ def handle_register_pilot():
 @app.route("/browse_pilots")
 def browse_pilots():
     query = """
-    SELECT _id, first_name, profile_url
+    SELECT id, first_name, profile_url
     FROM PILOT_DATA4
     """
 
@@ -83,7 +83,7 @@ def browse_pilots():
 @app.route("/pilots/<pilot_id>")
 def pilot_detail(pilot_id):
     query = f"""
-    SELECT _id, first_name, profile_url
+    SELECT id, first_name, profile_url
     FROM PILOT_DATA4
     where _id={pilot_id}
     """
