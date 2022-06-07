@@ -103,7 +103,7 @@ def pilot_detail(pilot_id):
 @app.route("/browse_companies")
 def browse_companies():
     query = """
-    SELECT _id, first_name, profile_url
+    SELECT id, company_name, profile_url, country, city, industry, badges
     FROM COMPANY_DATA4
     """
 
@@ -115,9 +115,9 @@ def browse_companies():
 @app.route("/companies/<company_id>")
 def company_detail(company_id):
     query = f"""
-    SELECT _id, first_name, profile_url
+    SELECT id, company_name, email, country, city, website_link, profile_url, description, industry, badges, member_since
     FROM COMPANY_DATA4
-    where _id={company_id}
+    where id={company_id}
     """
     with engine.connect() as connection:
         company = connection.execute(query).fetchone()
