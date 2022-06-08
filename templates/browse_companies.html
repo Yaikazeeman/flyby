@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 		{% block main %}
 			<!-- Title Header Start -->
-			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
+			<section class="inner-header-title" style="background-image:url(../static/assets/img/FlyBy_banner_size_smaller.jpg);">
 				<div class="container">
 					<h1>Browse Companies</h1>
 				</div>
@@ -47,7 +47,9 @@
 					<!-- Company Searrch Filter End -->
 					{% for company in companies %}
 					<!-- Single Browse Company -->
+					<a href="/companies/{{company[0]}}">
 					<div class="item-click">
+
 						<article>
 							<div class="brows-company">
 								<div class="col-md-6 col-sm-6">
@@ -73,8 +75,9 @@
 								</div>
 							</div>
 						</article>
+	
 					</div>
-
+					</a>
 					{% endfor %}
 					
 					
@@ -93,25 +96,6 @@
 				</div>
 			</section>
 			<!-- Browse Company List End -->
-			
-			<!-- ============================ Call To Action ================================== -->
-			<section class="theme-bg call-to-act-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							
-							<div class="call-to-act">
-								<div class="call-to-act-head">
-									<h3>Want to Become a Success Employers?</h3>
-									<span>We'll help you to grow your career and growth.</span>
-								</div>
-								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- ============================ Call To Action End ================================== -->
+
 
 			{% endblock %}

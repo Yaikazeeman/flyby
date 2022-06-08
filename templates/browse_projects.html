@@ -5,7 +5,7 @@
 <!-- tailer it to projects -->
 			
 			<!-- Title Header Start -->
-			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
+			<section class="inner-header-title" style="background-image:url(../static/assets/img/FlyBy_banner_size_smaller.jpg);">
 				<div class="container">
 					<h1>Browse Projects</h1>
 				</div>
@@ -47,31 +47,32 @@
 					</div>
 					<!-- Company Searrch Filter End -->
 					
-					<!--Browse Job In Grid-->
+					<!-- Browse Job In Grid-->
 					<div class="row extra-mrg">
 						{% for project in projects %}
 						<div class="candidate-list-layout">
 							<div class="cll-wrap">
 								<div class="cll-thumb">
-									<a href="company-detail.html"><img src="assets/img/com-1.jpg" class="img-responsive" alt="" /></a>
+									<a href="/projects/{{project[0]}}"><img src="assets/img/com-1.jpg" class="img-responsive" alt="" /></a>
 								</div>
 								<div class="cll-caption">
-									<h4><a href="company-detail.html">{{project[1]}}</a><span><i class="ti-briefcase"></i>{{project[4]}}</span></h4>
+									<h4><a href="/projects/{{project[0]}}">Drone project service title</a><span> </br/><i class="ti-briefcase"></i>{{project[4]}}</span></h4>
 									<ul>
 										<li><i class="ti-location-pin cl-danger"></i>{{project[2]}}, {{project[3]}}</li>
-										<li><i class="ti-medall cl-success"></i>{{project[5]}}</li>
+										<li><i class="ti-home cl-success"></i>{{project[1]}}</li>
 									</ul>
+									<h4><span>Start date: {{project[5]}}</span></h4>
 								</div>
 							</div>
 							
 							<div class="cll-right">
-								<a href="/projects/{{project[0]}}" class="btn btn-opening">Still available</a>
+								<a href="/projects/{{project[0]}}" class="btn btn-opening">View details</a>
 							</div>
 						</div>
 						{% endfor %}
 						
 					</div>
-					<!--/.Browse Job In Grid-->
+					<!--/.Browse Job In Grid -->
 
 					<div class="row">
 						<ul class="pagination">

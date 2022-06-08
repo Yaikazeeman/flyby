@@ -4,7 +4,7 @@
 
 
 			<!-- Title Header Start -->
-			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
+			<section class="inner-header-title" style="background-image:url(../static/assets/img/FlyBy_banner_size_smaller.jpg);">
 				<div class="container">
 				</div>
 			</section>
@@ -23,8 +23,8 @@
 								<img src="{{pilot[2]}}" class="img-responsive" alt="" />
 							</div>
 							<div class="ur-caption">
-								<h4 class="ur-title">{{pilot[1]}}</h4>
-								<p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>232, New Sleewar, Canada</p>
+								<h4 class="ur-title">{{pilot[1]}} {{pilot[3]}}</h4>
+								<p class="ur-location"><i class="ti-location-pin mrg-r-5"></i>{{pilot[4]}}, {{pilot[5]}}</p>
 								<span class="ur-designation">Drone Pilot</span>
 								<div class="rateing">
 									<i class="fa fa-star filled"></i>
@@ -38,8 +38,10 @@
 						</div>
 						
 						<div class="ur-detail-btn">
-							<a href="#" class="btn btn-warning mrg-bot-10 full-width"><i class="ti-thumb-up mrg-r-5"></i>Shortlist</a><br>
-							<a href="#" class="btn btn-info full-width"><i class="ti-download mrg-r-5"></i>Download CV</a>
+							<!-- <a href="#" class="btn btn-warning mrg-bot-10 full-width"><i class="ti-thumb-up mrg-r-5"></i>Shortlist</a><br> -->
+							<a href="#" class="btn btn-primary mrg-bot-10 full-width">Message now!</a><br>
+							<!-- <a href="#" class="btn btn-info full-width"><i class="ti-download mrg-r-5"></i>Download CV</a> -->
+							<a href="#" class="btn btn-warning full-width">Save to list</a>
 						</div>
 						
 					</div>
@@ -56,56 +58,8 @@
 						<div class="col-lg-8 col-md-8">
 							
 							<div class="row-bottom">
-								<h2 class="detail-title">About Candidate</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-							
-							<div class="row-bottom">
-								<h2 class="detail-title">Education</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								<ul class="trim-edu-list">
-								
-									<li>
-										<div class="trim-edu">
-											<h4 class="trim-edu-title">Virallia University<span class="title-est">2010 - 2012</span></h4>
-											<strong>Masters In Fine Arts</strong>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</li>
-									
-									<li>
-										<div class="trim-edu">
-											<h4 class="trim-edu-title">Virallia University<span class="title-est">2010 - 2012</span></h4>
-											<strong>Masters In Fine Arts</strong>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</li>
-									
-								</ul>
-							</div>
-							
-							<div class="row-bottom">
-								<h2 class="detail-title">Work & Experience</h2>
-								<ul class="trim-edu-list">
-								
-									<li>
-										<div class="trim-edu">
-											<h4 class="trim-edu-title">Innvovation Tech<span class="title-est">2013 - 2014</span></h4>
-											<strong>Web Designer</strong>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</li>
-									
-									<li>
-										<div class="trim-edu">
-											<h4 class="trim-edu-title">Livar Studio<span class="title-est">2014 - 2016</span></h4>
-											<strong>Graphic Designer</strong>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-									</li>
-									
-								</ul>
+								<h2 class="detail-title">About</h2>
+								{{pilot[11]}}
 							</div>
 							
 							<div class="row-bottom">
@@ -188,6 +142,80 @@
 								</div>
 							</div>
 							
+
+							<div class="row-bottom">
+								<h2 class="detail-title">Certifications</h2>
+								<ul class="trim-edu-list">
+								
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">A2 CofC (Certificate of Competency)<span class="title-est">2015</span></h4>
+											<strong>A2</strong>
+										</div>
+									</li>
+									
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">A1 CofC (Certificate of Competency)<span class="title-est">2015</span></h4>
+											<strong>A1</strong>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+
+
+							<div class="row-bottom">
+								<h2 class="detail-title">Work & Experience</h2>
+								<ul class="trim-edu-list">
+								
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">Innvovation Tech<span class="title-est">2013 - 2014</span></h4>
+											<strong>Web Designer</strong>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</li>
+									
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">Livar Studio<span class="title-est">2014 - 2016</span></h4>
+											<strong>Graphic Designer</strong>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+
+
+
+							<div class="row-bottom">
+								<h2 class="detail-title">Education</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<ul class="trim-edu-list">
+								
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">Virallia University<span class="title-est">2010 - 2012</span></h4>
+											<strong>Masters In Fine Arts</strong>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</li>
+									
+									<li>
+										<div class="trim-edu">
+											<h4 class="trim-edu-title">Virallia University<span class="title-est">2010 - 2012</span></h4>
+											<strong>Masters In Fine Arts</strong>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+							
+							
+				
 						</div>
 						
 						<div class="col-lg-4 col-md-4">
@@ -205,40 +233,46 @@
 											
 												<li>
 													<i class="ti-wallet"></i>
-													<h5>Offerd Salary</h5>
-													<span>£15,000 - £20,000</span>
+													<h5>Hourly rate</h5>
+													<span>€ 55,-</span>
 												</li>
 												
 												<li>
 													<i class="ti-user"></i>
 													<h5>Gender</h5>
-													<span>Male</span>
+													<span>{{pilot[6]}}</span>
 												</li>
 												
 												<li>
 													<i class="ti-ink-pen"></i>
 													<h5>Career Level</h5>
-													<span>Excutive</span>
+													<span>{{pilot[7]}}</span>
 												</li>
 												
 												<li>
 													<i class="ti-home"></i>
-													<h5>Industry</h5>
-													<span>Management</span>
+													<h5>Services</h5>
+													<span>{{pilot[8]}}</span>
 												</li>
 												
 												<li>
 													<i class="ti-shield"></i>
 													<h5>Experience</h5>
-													<span>5 Years</span>
+													<span>{{pilot[9]}} years</span>
 												</li>
 												
 												<li>
 													<i class="ti-book"></i>
-													<h5>Qualification</h5>
-													<span>Master Degree</span>
+													<h5>Certifications</h5>
+													<span>A1, A2</span>
 												</li>
 												
+												<li>
+													<i class="ti-user"></i>
+													<h5>Member since</h5>
+													<span>{{pilot[10]}}</span>
+												</li>
+
 											</ul>
 										</div>
 									</div>
@@ -267,7 +301,7 @@
 													<label>Message</label>
 													<textarea class="form-control"></textarea>
 												</div>
-												<button type="submit" class="btn btn-primary">Submit</button>
+												<button type="submit" class="btn btn-primary">Sent</button>
 											</form>
 										</div>
 									</div>
@@ -282,24 +316,4 @@
 				</div>
 			</section>
 			<!-- company full detail End -->
-			
-			<!-- ============================ Call To Action ================================== -->
-			<section class="theme-bg call-to-act-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							
-							<div class="call-to-act">
-								<div class="call-to-act-head">
-									<h3>Want to Become a Success Employers?</h3>
-									<span>We'll help you to grow your career and growth.</span>
-								</div>
-								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- ============================ Call To Action End ================================== -->
 			{% endblock %}

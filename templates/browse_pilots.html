@@ -3,7 +3,7 @@
 {% block main %}
 			
 			<!-- Title Header Start -->
-			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
+			<section class="inner-header-title" style="background-image:url(../static/assets/img/FlyBy_banner_size_smaller.jpg);">
 				<div class="container">
 					<h1>Browse Drone Pilots</h1>
 				</div>
@@ -55,9 +55,9 @@
 									<div class="cndt-pic">
 										<img src="{{pilot[2]}}" class="img-responsive" alt="" />
 									</div>
-									<h4>{{pilot[1]}}</h4>
+									<h4>{{pilot[1]}} {{pilot[4]}}</h4>
 									<span>Drone pilot</span>
-									<p>Areal videograpy, Editing, Mapping services </p>
+									<p>{{pilot[3]}} </p>
 								</div>
 								<a href="/pilots/{{pilot[0]}}" title="" class="cndt-profile-btn">View Profile</a>
 							</div>

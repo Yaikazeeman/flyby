@@ -2,7 +2,7 @@
 
 	{% block main %}
 			<!-- Title Header Start -->
-			<section class="inner-header-title" style="background-image:url(http://via.placeholder.com/1920x850);">
+			<section class="inner-header-title" style="background-image:url(../static/assets/img/FlyBy_banner_size_smaller.jpg);">
 				<div class="container">
 				</div>
 			</section>
@@ -36,8 +36,8 @@
 						</div>
 						
 						<div class="ur-detail-btn">
-							<a href="#" class="btn btn-warning mrg-bot-10 full-width">Follow Now</a><br>
-							<a href="#" class="btn btn-primary full-width">Get in Touch</a>
+							<a href="#" class="btn btn-primary mrg-bot-10 full-width">Message now!</a><br>
+							<a href="#" class="btn btn-warning full-width">Follow</a>
 						</div>
 						
 					</div>
@@ -55,14 +55,12 @@
 							
 							<div class="row-bottom">
 								<h2 class="detail-title">About Company</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								{{company[7]}}
 							</div>
 							
 							<div class="row-bottom">
-								<h2 class="detail-title">Current Opening</h2>
-								<h4 class="mrg-bot-15">Total 06 New Openings</h4>
+								<h2 class="detail-title">Current Projects</h2>
+								<h4 class="mrg-bot-15">Total 02 Projects</h4>
 								
 								<!--Browse Job In Grid-->
 								<div class="row extra-mrg">
@@ -73,26 +71,26 @@
 												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
 											</div>
 											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
-												<p><span>Google</span></p>
+												<h3><a href="job-detail-2.html">Drone Pilot - Aerial videography</a></h3>
+												<p><span>{{company[1]}}</span></p>
 											</div>
-											<div class="job-position">
+											<!-- <div class="job-position">
 												<span class="job-num">5 Position</span>
-											</div>
+											</div> -->
 											<div class="brows-job-type">
 												<span class="full-time">Full Time</span>
 											</div>
 											<ul class="grid-view-caption">
 												<li>
 													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+														<p><i class="fa fa-map-marker"></i>{{company[4]}}, {{company[3]}}</p>
 													</div>
 												</li>
 												<li>
 													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
 												</li>
 											</ul>
-											<span class="tg-themetag tg-featuretag">Premium</span>
+											<!-- <span class="tg-themetag tg-featuretag">Premium</span> -->
 										</div>
 									</div>
 									
@@ -102,139 +100,25 @@
 												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
 											</div>
 											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
+												<h3><a href="job-detail-2.html">Areal photograpy</a></h3>
 												<p><span>Google</span></p>
 											</div>
-											<div class="job-position">
+											<!-- <div class="job-position">
 												<span class="job-num">5 Position</span>
-											</div>
+											</div> -->
 											<div class="brows-job-type">
 												<span class="part-time">Part Time</span>
 											</div>
 											<ul class="grid-view-caption">
 												<li>
 													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
+														<p><i class="fa fa-map-marker"></i>{{company[4]}}, {{company[3]}}</p>
 													</div>
 												</li>
 												<li>
 													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
 												</li>
 											</ul>
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-6">
-										<div class="grid-view brows-job-list">
-											<div class="brows-job-company-img">
-												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
-											</div>
-											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
-												<p><span>Google</span></p>
-											</div>
-											<div class="job-position">
-												<span class="job-num">5 Position</span>
-											</div>
-											<div class="brows-job-type">
-												<span class="freelanc">Freelancer</span>
-											</div>
-											<ul class="grid-view-caption">
-												<li>
-													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
-													</div>
-												</li>
-												<li>
-													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
-												</li>
-											</ul>
-											<span class="tg-themetag tg-featuretag">Premium</span>
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-6">
-										<div class="grid-view brows-job-list">
-											<div class="brows-job-company-img">
-												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
-											</div>
-											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
-												<p><span>Google</span></p>
-											</div>
-											<div class="job-position">
-												<span class="job-num">5 Position</span>
-											</div>
-											<div class="brows-job-type">
-												<span class="enternship">Enternship</span>
-											</div>
-											<ul class="grid-view-caption">
-												<li>
-													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
-													</div>
-												</li>
-												<li>
-													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
-												</li>
-											</ul>
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-6">
-										<div class="grid-view brows-job-list">
-											<div class="brows-job-company-img">
-												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
-											</div>
-											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
-												<p><span>Google</span></p>
-											</div>
-											<div class="job-position">
-												<span class="job-num">5 Position</span>
-											</div>
-											<div class="brows-job-type">
-												<span class="full-time">Full Time</span>
-											</div>
-											<ul class="grid-view-caption">
-												<li>
-													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
-													</div>
-												</li>
-												<li>
-													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
-												</li>
-											</ul>
-										</div>
-									</div>
-									
-									<div class="col-md-6 col-sm-6">
-										<div class="grid-view brows-job-list">
-											<div class="brows-job-company-img">
-												<img src="http://via.placeholder.com/150x150" class="img-responsive" alt="" />
-											</div>
-											<div class="brows-job-position">
-												<h3><a href="job-detail-2.html">Web Developer</a></h3>
-												<p><span>Google</span></p>
-											</div>
-											<div class="job-position">
-												<span class="job-num">5 Position</span>
-											</div>
-											<div class="brows-job-type">
-												<span class="part-time">Part Time</span>
-											</div>
-											<ul class="grid-view-caption">
-												<li>
-													<div class="brows-job-location">
-														<p><i class="fa fa-map-marker"></i>QBL Park, C40</p>
-													</div>
-												</li>
-												<li>
-													<p><span class="brows-job-sallery"><i class="fa fa-money"></i>$110 - 200</span></p>
-												</li>
-											</ul>
-											<span class="tg-themetag tg-featuretag">Premium</span>
 										</div>
 									</div>
 									
@@ -260,8 +144,8 @@
 											
 												<li>
 													<i class="ti-ruler-pencil"></i>
-													<h5>Established</h5>
-													<span>July 10 2019</span>
+													<h5>Available projects</h5>
+													<span>3</span>
 												</li>
 												
 												<li>
@@ -272,53 +156,41 @@
 												
 												<li>
 													<i class="ti-face-smile"></i>
-													<h5>Owner Name</h5>
-													<span>July 10 2019</span>
+													<h5>Industry</h5>
+													<span>{{company[8]}}</span>
 												</li>
 												
 												<li>
 													<i class="ti-email"></i>
 													<h5>Email</h5>
-													<span>yourcompany@gmail.com</span>
+													<span>{{company[2]}}</span>
 												</li>
 												
 												<li>
-													<i class="ti-mobile"></i>
-													<h5>Call</h5>
-													<span>+91 254 548 4578</span>
+													<i class="ti-location-pin"></i>
+													<h5>Location</h5>
+													<span>{{company[4]}}, {{company[3]}}</span>
+												</li>
+
+												<li>
+													<i class="ti-home"></i>
+													<h5>Website link</h5>
+													<span><a href="{{company[5]}}">Click here</a></span>
 												</li>
 												
+												
+												<li>
+													<i class="ti-user"></i>
+													<h5>Member since</h5>
+													<span>{{company[10]}}</span>
+												</li>
+
 											</ul>
 										</div>
 									</div>
 									
 								</div>
 								<!-- /Company overview -->
-								
-								<!-- Working Days -->
-								<div class="sidebar-widgets">
-								
-									<div class="ur-detail-wrap">
-										<div class="ur-detail-wrap-header">
-											<h4>Working Days</h4>
-										</div>
-										<div class="ur-detail-wrap-body">
-											<ul class="working-days">
-												
-												<li>Monday<span>9AM - 5PM</span></li>
-												<li>Tuesday<span>9AM - 5PM</span></li>
-												<li>Wednesday<span>9AM - 5PM</span></li>
-												<li class="active">Thursday<span>9AM - 5PM</span></li>
-												<li>Friday<span>9AM - 5PM</span></li>
-												<li>Saturday<span>9AM - 5PM</span></li>
-												<li class="close-day">Sunday<span>Close</span></li>
-												
-											</ul>
-										</div>
-									</div>
-									
-								</div>
-								<!-- /Working Days -->
 								
 								<!-- Follow Links -->
 								<div class="sidebar-widgets">
@@ -379,24 +251,4 @@
 			</section>
 			<!-- company full detail End -->
 			
-			<!-- ============================ Call To Action ================================== -->
-			<section class="theme-bg call-to-act-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							
-							<div class="call-to-act">
-								<div class="call-to-act-head">
-									<h3>Want to Become a Success Employers?</h3>
-									<span>We'll help you to grow your career and growth.</span>
-								</div>
-								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- ============================ Call To Action End ================================== -->
-
 		{% endblock %}

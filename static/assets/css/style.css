@@ -238,6 +238,15 @@ Personalization by flyby team
     justify-content: space-around;
 }
 
+.button-register-div{
+    background-color: #0067ff !important;
+}
+
+.button-register-div li a :active{
+    background-color: white !important;
+}
+
+
 /* ==========================================================================
 General Setting
 ========================================================================== */
