@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -12,7 +11,7 @@ PUBLIC_IP_ADDRESS ="34.79.169.36"
 DBNAME ="flyby_database"
 PROJECT_ID ="flyby-capstone"
 INSTANCE_NAME ="flyby-capstone:europe-west1:flyby-capstone-database"
-SQLALCHEMY_DATABASE_URI = f"mysql+mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket=/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
+SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket=/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}'
  
 # configuration
 app.config["SECRET_KEY"] = "bSkb22Tr+YaTLDtaIVtoui99n8KPVeDxLtil/A2Q"
@@ -323,4 +322,5 @@ def handle_sent_message():
 
         return redirect(url_for("direct_messages",user_id=to_id))
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
