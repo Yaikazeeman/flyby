@@ -24,21 +24,67 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 def index():
     return render_template("index.html")
 
-@app.route("/register")
-def register():
-    return render_template("register.html")
-
-@app.route("/register", methods=["POST"])
-def handle_register():
-    username=request.form["username"]
+@app.route("/pilot-signup", methods=["POST"])
+def handle_signup_pilot():
+    first_name=request.form["first_name"]
+    last_name=request.form["last_name"]
+    email=request.form["email"]
     password=request.form["password"]
-    picture=request.form["picture"]
 
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO users(username, picture, password)
-    VALUES ('{username}', '{picture}', '{hashed_password}')
+    INSERT INTO PILOT_DATA4 (first_name, last_name, email, password)
+    VALUES ('{first_name}', '{last_name}','{email}', '{hashed_password}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("pilotregister"))
+
+
+@app.route("/company-signup", methods=["POST"])
+def handle_signup_company():
+    name=request.form["name"]
+    email=request.form["email"]
+    password=request.form["password"]
+
+    hashed_password = generate_password_hash(password)
+
+    insert_query = f"""
+    INSERT INTO COMPANY_DATA4 (name, email, password)
+    VALUES ('{name}','{email}', '{hashed_password}')
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+
+        return redirect(url_for("companyregister"))
+
+
+@app.route("/pilotregister")
+def pilotregister():
+    return render_template("pilotregister.html")
+
+
+@app.route("/companyregister")
+def companyregister():
+    return render_template("companyregister.html")
+
+
+@app.route("/register_pilot", methods=["POST"])
+def handle_register_pilot():
+    first_name=request.form["first_name"]
+    password=request.form["password"]
+    picture=request.form["profile_url"]
+    print(picture)
+
+    hashed_password = generate_password_hash(password)
+
+    insert_query = f"""
+    INSERT INTO PILOT_DATA4 (first_name, profile_url, password)
+    VALUES ('{first_name}', '{picture}', '{hashed_password}')
     """
 
     with engine.connect() as connection:
@@ -46,16 +92,18 @@ def handle_register():
 
         return redirect(url_for("index"))
 
-@app.route("/register_pilot", methods=["POST"])
-def handle_register_pilot():
+
+@app.route("/register_company", methods=["POST"])
+def handle_register_company():
     first_name=request.form["first_name"]
     password=request.form["password"]
     picture=request.form["profile_url"]
+    print(picture)
 
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO PILOT_DATA4(first_name, profile_url, password)
+    INSERT INTO COMPANY_DATA4 (first_name, profile_url, password)
     VALUES ('{first_name}', '{picture}', '{hashed_password}')
     """
 
