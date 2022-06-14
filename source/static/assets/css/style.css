@@ -257,6 +257,7 @@ Personalization by flyby team
     box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.53);
 }
 
+
 /* ==========================================================================
 General Setting
 ========================================================================== */
@@ -347,7 +348,8 @@ a.btn.call-btn {
 background: #ffffff;
 border-radius: 4px;
 padding: 0.8em 2em;
-color:#11b719;
+/* this might be the green color problem green-color-problem */
+color:#e6ece6;
 text-transform: capitalize;
 }
 .small-padd{
@@ -5486,12 +5488,14 @@ border-radius:0;
 margin:0;
 }
 .modal-body .nav>li.active>a{
-background:#11b719;
+    /* green-color-problem */
+background:#ffff;
 text-transform:uppercase;
 color:#ffffff;
 }
 .modal-body .nav>li>a:hover, .modal-body .nav>li>a:focus{
-background:#11b719;
+    /* green-color-problem */
+background:#fff;
 border:1px solid #0e9cf3;
 color:#ffffff;
 }
@@ -8469,7 +8473,7 @@ html body .b-r {
     margin-bottom: 0;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    color: #11b719 !important;
+    color: #16162c !important;
     cursor: default;
     background-color: #fff;
     border: none;

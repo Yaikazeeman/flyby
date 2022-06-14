@@ -24,7 +24,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 def index():
     return render_template("index.html")
 
-@app.route("/pilot-signup", methods=["POST"])
+@app.route("/pilot-signup", methods=["POST", "GET"])
 def handle_signup_pilot():
     first_name=request.form["first_name"]
     last_name=request.form["last_name"]
@@ -34,26 +34,30 @@ def handle_signup_pilot():
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO PILOT_DATA4 (first_name, last_name, email, password)
+    INSERT INTO PILOT_DATA (first_name, last_name, email, password)
     VALUES ('{first_name}', '{last_name}','{email}', '{hashed_password}')
+    """
+
+    get_id_query = f"""
+    SELECT id FROM PILOT_DATA WHERE first_name = '{first_name}' AND last_name = '{last_name}' AND email = '{email}'
     """
 
     with engine.connect() as connection:
         connection.execute(insert_query)
-
-        return redirect(url_for("pilotregister"))
+        id = connection.execute(get_id_query).fetchone()
+        return redirect(f"/pilotregister/'{int(id[0])}'")
 
 
 @app.route("/company-signup", methods=["POST"])
 def handle_signup_company():
-    name=request.form["name"]
+    name=request.form["company_name"]
     email=request.form["email"]
     password=request.form["password"]
 
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO COMPANY_DATA4 (name, email, password)
+    INSERT INTO COMPANY_DATA (company_name, email, password)
     VALUES ('{name}','{email}', '{hashed_password}')
     """
 
@@ -63,47 +67,46 @@ def handle_signup_company():
         return redirect(url_for("companyregister"))
 
 
-@app.route("/pilotregister")
-def pilotregister():
-    return render_template("pilotregister.html")
-
+@app.route("/pilotregister/<pilot_id>")
+def pilotregister(pilot_id):
+    return render_template("pilotregister.html", pilot_id=pilot_id)
 
 @app.route("/companyregister")
 def companyregister():
     return render_template("companyregister.html")
 
 
-@app.route("/register_pilot", methods=["POST"])
-def handle_register_pilot():
+@app.route("/register_pilot/<pilot_id>", methods=["POST"])
+def handle_register_pilot(pilot_id):
     first_name=request.form["first_name"]
     password=request.form["password"]
-    picture=request.form["profile_url"]
+    picture=request.form["profilepicture_url"]
     print(picture)
 
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO PILOT_DATA4 (first_name, profile_url, password)
+    INSERT INTO PILOT_DATA (first_name, profilepicture_url, password)
     VALUES ('{first_name}', '{picture}', '{hashed_password}')
     """
 
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("index"))
+        return redirect(url_for("browse_companies"))
 
 
 @app.route("/register_company", methods=["POST"])
 def handle_register_company():
     first_name=request.form["first_name"]
     password=request.form["password"]
-    picture=request.form["profile_url"]
+    picture=request.form["profilepicture_url"]
     print(picture)
 
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO COMPANY_DATA4 (first_name, profile_url, password)
+    INSERT INTO COMPANY_DATA (first_name, profilepicture_url, password)
     VALUES ('{first_name}', '{picture}', '{hashed_password}')
     """
 
@@ -117,8 +120,8 @@ def handle_register_company():
 @app.route("/browse_pilots")
 def browse_pilots():
     query = """
-    SELECT id, first_name, profile_url, services, last_name
-    FROM PILOT_DATA4
+    SELECT id, first_name, profilepicture_url, services, last_name
+    FROM PILOT_DATA
     """
 
     with engine.connect() as connection:
@@ -130,8 +133,8 @@ def browse_pilots():
 @app.route("/pilots/<pilot_id>")
 def pilot_detail(pilot_id):
     query = f"""
-    SELECT id, first_name, profile_url, last_name, city, country, gender, badges, services, years_of_experience, member_since, description
-    FROM PILOT_DATA4
+    SELECT id, first_name, profilepicture_url, last_name, city, country, gender, badge, services, years_of_experience, member_since, description, s2_communication_skills
+    FROM PILOT_DATA
     where id={pilot_id}
     """
     with engine.connect() as connection:
@@ -150,8 +153,8 @@ def pilot_detail(pilot_id):
 @app.route("/browse_companies")
 def browse_companies():
     query = """
-    SELECT id, company_name, profile_url, country, city, industry, badges
-    FROM COMPANY_DATA4
+    SELECT id, company_name, profilepicture_url, country, city, industry, badge
+    FROM COMPANY_DATA
     """
 
     with engine.connect() as connection:
@@ -162,8 +165,8 @@ def browse_companies():
 @app.route("/companies/<company_id>")
 def company_detail(company_id):
     query = f"""
-    SELECT id, company_name, email, country, city, website_link, profile_url, description, industry, badges, member_since
-    FROM COMPANY_DATA4
+    SELECT id, company_name, email, country, city, website_link, profilepicture_url, description, industry, badge, member_since
+    FROM COMPANY_DATA
     where id={company_id}
     """
     with engine.connect() as connection:
@@ -184,7 +187,7 @@ def company_detail(company_id):
 def browse_projects():
     query = """
     SELECT id, project_name, country, city, services, start_date
-    FROM PROJECT_DATA4
+    FROM PROJECT_DATA
     """
 
     with engine.connect() as connection:
@@ -196,7 +199,7 @@ def browse_projects():
 def project_detail(project_id):
     query = f"""
     SELECT id, project_name, contact_email, country, city, description, services, certification, project_duration_days, start_date, years_of_experience
-    FROM PROJECT_DATA4
+    FROM PROJECT_DATA
     where id={project_id}
     """
     with engine.connect() as connection:
