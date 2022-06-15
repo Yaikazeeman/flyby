@@ -24,6 +24,19 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 def index():
     return render_template("index.html")
 
+@app.route("/brochure", methods=["POST"])
+def brochure():
+
+    email = request.form["email"]
+
+    insert_brochure_query = f"""
+    INSERT INTO BROCHURE_DATA (email_brochure)
+    VALUES ('{email}')
+    """
+    with engine.connect() as connection:
+        connection.execute(insert_brochure_query)
+        return redirect(url_for("index"))
+
 @app.route("/pilot-signup", methods=["POST", "GET"])
 def handle_signup_pilot():
     first_name=request.form["first_name"]
@@ -119,31 +132,37 @@ def handle_register_company():
 
 @app.route("/browse_pilots")
 def browse_pilots():
-    query = """
-    SELECT id, first_name, profilepicture_url, services, last_name
-    FROM PILOT_DATA
-    """
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = """
+        SELECT id, first_name, profilepicture_url, services, last_name
+        FROM PILOT_DATA
+        """
 
-    with engine.connect() as connection:
-        pilots = connection.execute(query)
+        with engine.connect() as connection:
+            pilots = connection.execute(query)
 
-        return render_template("browse_pilots.html", pilots=pilots)
+            return render_template("browse_pilots.html", pilots=pilots)
 
 
 @app.route("/pilots/<pilot_id>")
 def pilot_detail(pilot_id):
-    query = f"""
-    SELECT id, first_name, profilepicture_url, last_name, city, country, gender, badge, services, years_of_experience, member_since, description, s2_communication_skills
-    FROM PILOT_DATA
-    where id={pilot_id}
-    """
-    with engine.connect() as connection:
-        pilot = connection.execute(query).fetchone()
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = f"""
+        SELECT id, first_name, profilepicture_url, last_name, city, country, gender, badge, services, years_of_experience, member_since, description, s2_communication_skills
+        FROM PILOT_DATA
+        where id={pilot_id}
+        """
+        with engine.connect() as connection:
+            pilot = connection.execute(query).fetchone()
 
-        if pilot:
-            return render_template("pilot_detail.html", pilot=pilot)
-        else:
-            return render_template("404.html"), 404
+            if pilot:
+                return render_template("pilot_detail.html", pilot=pilot)
+            else:
+                return render_template("404.html"), 404
 
 ################################################### end pilot part
 
@@ -152,30 +171,36 @@ def pilot_detail(pilot_id):
 
 @app.route("/browse_companies")
 def browse_companies():
-    query = """
-    SELECT id, company_name, profilepicture_url, country, city, industry, badge
-    FROM COMPANY_DATA
-    """
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = """
+        SELECT id, company_name, profilepicture_url, country, city, industry, badge
+        FROM COMPANY_DATA
+        """
 
-    with engine.connect() as connection:
-        companies = connection.execute(query)
+        with engine.connect() as connection:
+            companies = connection.execute(query)
 
-        return render_template("browse_companies.html", companies=companies)
+            return render_template("browse_companies.html", companies=companies)
 
 @app.route("/companies/<company_id>")
 def company_detail(company_id):
-    query = f"""
-    SELECT id, company_name, email, country, city, website_link, profilepicture_url, description, industry, badge, member_since
-    FROM COMPANY_DATA
-    where id={company_id}
-    """
-    with engine.connect() as connection:
-        company = connection.execute(query).fetchone()
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = f"""
+        SELECT id, company_name, email, country, city, website_link, profilepicture_url, description, industry, badge, member_since
+        FROM COMPANY_DATA
+        where id={company_id}
+        """
+        with engine.connect() as connection:
+            company = connection.execute(query).fetchone()
 
-        if company:
-            return render_template("company_detail.html", company=company)
-        else:
-            return render_template("404.html"), 404
+            if company:
+                return render_template("company_detail.html", company=company)
+            else:
+                return render_template("404.html"), 404
 
 ######################################################## end company part
 
@@ -185,30 +210,36 @@ def company_detail(company_id):
 
 @app.route("/browse_projects")
 def browse_projects():
-    query = """
-    SELECT id, project_name, country, city, services, start_date
-    FROM PROJECT_DATA
-    """
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = """
+        SELECT id, project_name, country, city, services, start_date
+        FROM PROJECT_DATA
+        """
 
-    with engine.connect() as connection:
-        projects = connection.execute(query)
+        with engine.connect() as connection:
+            projects = connection.execute(query)
 
-        return render_template("browse_projects.html", projects=projects)
+            return render_template("browse_projects.html", projects=projects)
 
 @app.route("/projects/<project_id>")
 def project_detail(project_id):
-    query = f"""
-    SELECT id, project_name, contact_email, country, city, description, services, certification, project_duration_days, start_date, years_of_experience
-    FROM PROJECT_DATA
-    where id={project_id}
-    """
-    with engine.connect() as connection:
-        project = connection.execute(query).fetchone()
+    if "user_id" not in session:
+        return render_template("403.html"), 403    
+    else:
+        query = f"""
+        SELECT id, project_name, contact_email, country, city, description, services, certification, project_duration_days, start_date, years_of_experience
+        FROM PROJECT_DATA
+        where id={project_id}
+        """
+        with engine.connect() as connection:
+            project = connection.execute(query).fetchone()
 
-        if project:
-            return render_template("project_detail.html", project=project)
-        else:
-            return render_template("404.html"), 404
+            if project:
+                return render_template("project_detail.html", project=project)
+            else:
+                return render_template("404.html"), 404
 
 ############################################################# end project part
 
@@ -218,28 +249,35 @@ def login():
 
 @app.route("/login", methods=["POST"])
 def handle_login():
-    username=request.form["username"]
+    email=request.form["email"]
     password=request.form["password"]
 
     login_query = f"""
     SELECT password, id
-    FROM users
-    WHERE username='{username}'
+    FROM PILOT_DATA
+    WHERE email='{email}'
+
+    UNION
+
+    SELECT password, id
+    FROM COMPANY_DATA
+    WHERE email='{email}'
+
     """
 
     with engine.connect() as connection:
         user = connection.execute(login_query).fetchone()
-
+        print(user)
         if user and check_password_hash(user[0], password):
             session["user_id"] = user[1]
-            session["username"] = username
+            session["useremail"] = email
             return redirect(url_for("index"))
         else:
             return render_template("404.html"), 404
 
 @app.route("/logout")
 def logout():
-    session.pop("username")
+    session.pop("useremail")
     session.pop("user_id")
 
     return redirect(url_for("index"))

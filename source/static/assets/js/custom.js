@@ -185,6 +185,12 @@ All custom js files contents are below
 		placeholder: "Choose Category...",
 		allowClear: true
 	});
+
+	// Category Select
+	$('#choose-experience-level').select2({
+		placeholder: "Choose Category...",
+		allowClear: true
+	});
 	
 	// Levels
 	$('#levels').select2();

@@ -138,6 +138,43 @@ Fonts
 Personalization by flyby team
 ========================================================================== */
 
+.mobile-mask{
+    display: none;
+}
+
+@media only screen and (max-width: 1036px) {
+    .mobile-mask {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+        background-color: #002758;
+    }
+
+    .wrapper-total {
+        display: none;
+    }
+
+    .mobile-mask-text{
+        display: block;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 300;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        width: 100%;
+    }
+  }
+
+
+.not-logged-in{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .temp-browse-companies-link{
     margin: auto 0;
 }
