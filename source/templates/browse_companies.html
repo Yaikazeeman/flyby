@@ -18,25 +18,24 @@
 					<!-- Company Searrch Filter Start -->
 					<div class="row extra-mrg">
 						<div class="wrap-search-filter">
-							<form>
+							<form action="/browse_companies" method="POST" >
 								<div class="col-md-4 col-sm-4">
-									<input type="text" class="form-control" placeholder="Keyword: Name, Tag">
+									<input type="text" name="name" class="form-control" placeholder="Name">
 								</div>
 								<div class="col-md-3 col-sm-3">
-									<input type="text" class="form-control" placeholder="Location: City, State, Zip">
+									<input type="text" name="location" class="form-control" placeholder="Location: City, Country">
 								</div>
 								<div class="col-md-3 col-sm-3">
-									<select class="form-control" id="j-category">
+									<select class="form-control" name="industry" id="j-category">
 										<option value="">&nbsp;</option>
-										<option value="1">Information Technology</option>
-										<option value="2">Mechanical</option>
-										<option value="3">Hardware</option>
-										<option value="4">Hospitality & Tourism</option>
-										<option value="5">Education & Training</option>
-										<option value="6">Government & Public</option>
-										<option value="7">Architecture</option>
+										<option value="Construction">Construction</option>
+										<option value="Energy/Utilities">Energy/Utilities</option>
+										<option value="Insurance/Roofing">Insurance/Roofing</option>
+										<option value="Agriculture">Agriculture</option>
+										<option value="Real Estate">Real Estate</option>
+										<option value="Public Safety">Public Safety</option>
+										<option value="Cinematography">Cinematography</option>
 									</select>
-
 								</div>
 								<div class="col-md-2 col-sm-2">
 									<button type="submit" class="btn btn-primary full-width">Filter</button>

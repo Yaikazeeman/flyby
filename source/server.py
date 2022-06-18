@@ -209,8 +209,8 @@ def browse_pilots():
             location = request.form["location"]
             service = request.form["service"]
 
-            query = """
-            SELECT id, first_name, profilepicture_url, services, last_name 
+            query = f"""
+            SELECT id, first_name, profilepicture_url, services, last_name, badge 
             FROM PILOT_DATA WHERE 
                 first_name = '{name}' OR 
                 last_name = '{name}' OR 
@@ -220,7 +220,7 @@ def browse_pilots():
             """
         else:
             query = """
-            SELECT id, first_name, profilepicture_url, services, last_name
+            SELECT id, first_name, profilepicture_url, services, last_name, badge
             FROM PILOT_DATA
             """
 
@@ -253,15 +253,32 @@ def pilot_detail(pilot_id):
 ################################################## start company part
 
 
-@app.route("/browse_companies")
+@app.route("/browse_companies", methods=["POST", "GET"])
 def browse_companies():
     if "user_id" not in session:
         return render_template("403.html"), 403    
     else:
-        query = """
-        SELECT id, company_name, profilepicture_url, country, city, industry, badge
-        FROM COMPANY_DATA
-        """
+
+        if request.method == 'POST':
+
+            name = request.form["name"]
+            location = request.form["location"]
+            industry = request.form["industry"]
+
+            query = f"""
+            SELECT id, company_name, profilepicture_url, country, city, industry, badge
+            FROM COMPANY_DATA WHERE 
+                company_name = '{name}' OR 
+                city = '{location}' OR 
+                country = '{location}' OR 
+                industry = '{industry}'
+            """
+        else:
+
+            query = """
+            SELECT id, company_name, profilepicture_url, country, city, industry, badge
+            FROM COMPANY_DATA
+            """
 
         with engine.connect() as connection:
             companies = connection.execute(query)
@@ -292,15 +309,31 @@ def company_detail(company_id):
 
 
 
-@app.route("/browse_projects")
+@app.route("/browse_projects", methods=["POST", "GET"])
 def browse_projects():
     if "user_id" not in session:
         return render_template("403.html"), 403    
     else:
-        query = """
-        SELECT id, project_name, country, city, services, start_date
-        FROM MOCK_DATA
-        """
+        if request.method == 'POST':
+
+            name = request.form["name"]
+            location = request.form["location"]
+            service = request.form["service"]
+
+            query = f"""
+            SELECT id, project_name, country, city, services, start_date
+            FROM MOCK_DATA WHERE
+                project_name = '{name}' OR
+                city = '{location}' OR 
+                country = '{location}' OR 
+                services = '{service}'
+            """
+        else:
+
+            query = """
+            SELECT id, project_name, country, city, services, start_date
+            FROM MOCK_DATA
+            """
 
         with engine.connect() as connection:
             projects = connection.execute(query)

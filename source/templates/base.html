@@ -47,11 +47,17 @@
 							<a href="/browse_companies" >Browse Companies</a>
 						</div>
 					</div>
-
+					{% if not session['useremail'] %}
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 						<li><a href="/login" ><i class="fa fa-sign-in"></i>Login</a></li>
 						<li class="left-br"><a href="#"  data-toggle="modal" data-target="#signup" class="signin">Sign up now!</a></li>
 					</ul>
+					{% else %}
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+						<li><a href="/personal_profile" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li class="left-br"><a href="/logout" class="signin">Logout</a></li>
+					</ul>
+					{% endif %}
 				</div>   
 			</nav>
 			<!-- End Navigation -->
