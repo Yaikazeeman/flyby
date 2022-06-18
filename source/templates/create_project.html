@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block main %}
+          <div class="registration-page">
+						<!-- Content Wrap -->
+							<!-- <div class="dashboard-body"> -->
+								<div class="dashboard-caption shadow-div">
+									
+									<div class="dashboard-caption-header">
+										<h4><i class="ti-id-badge"></i>Create your project</h4>
+									</div>
+									
+									<div class="dashboard-caption-wrap">
+										<form action="/register_pilot/{{pilot_id}}">  
+										<!-- row -->
+											<h2 class="detail-title">General informantion</h2>
+
+											<div class="row mrg-top-20">
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Project name</label>
+														<input type="text" class="form-control" placeholder="Enter your project name" required>
+													</div>	
+												</div>
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Last name</label>
+														<input type="text" class="form-control" placeholder="last name">
+													</div>	
+												</div> -->
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Services</label>
+														<select id="choose-experience-level" class="form-control">
+															<option>Services</option>
+															<option value="Aerial Photography">Aerial Photography</option>
+															<option value="Photography & Video Production">Photography & Video Production</option>
+															<option value="Real Estate Videography">Real Estate Videography</option>
+															<option value="Drone LiDAR imaging">Drone LiDAR imaging</option>
+															<option value="Aerial Inspections & Measurements">Aerial Inspections & Measurements</option>
+															<option value="Marketing & Advertising Footage">Marketing & Advertising Footage</option>
+															<option value="Damage Assessment">Damage Assessment</option>
+															<option value="Aerial Wind Turbine Inspections">Aerial Wind Turbine Inspections</option>
+															<option value="Aerial Cinematography">Aerial Cinematography</option>
+															<option value="Aerial Mapping">Aerial Mapping</option>
+															<option value="Drone Sensors Implementations">Drone Sensors Implementations</option>														
+														</select>
+													</div>	
+												</div>		
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Country</label>
+														<select id="choose-experience-level" class="form-control">
+															<option>Country</option>
+															<option value="Spain">Spain</option>
+															<option value="Portugal">Portugal</option>
+															<option value="Italy">Italy</option>
+															<option value="France">France</option>
+															<option value="Germany">Germany</option>
+														</select>
+													</div>	
+												</div>
+
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>City</label>
+														<input type="text" class="form-control" placeholder="Enter cityname">
+													</div>	
+												</div>
+
+												
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Start Date</label>
+														<input type="date" class="form-control" placeholder="Enter start date">
+													</div>	
+												</div>
+
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Project Duration</label>
+														<input type="number" class="form-control" placeholder="Enter project duration in days">
+													</div>	
+												</div>												
+		
+											</div>
+
+											<h2 class="detail-title">About</h2>
+											<div class="row mrg-top-20">
+										
+
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													<div class="form-group">
+														<label>About the project</label>
+														<textarea class="form-control textarea" placeholder="Tell us more about your project ;)"></textarea>
+													</div>	
+												</div>
+
+												<div>
+													<div class="col-lg-12 col-md-12 col-sm-12">
+														<div class="form-group">
+															<label>Requirements</label>
+															<textarea class="form-control textarea" placeholder="Describe the requirements for your project"></textarea>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+			
+										<!-- </div> -->
+
+			
+										<!-- </div>
+										<div class="dashboard-caption-wrap"> -->
+
+									
+
+											<h2 class="detail-title">Qualifications required</h2>
+											<div class="row mrg-top-20">
+
+
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Certifications</label>
+														<select id="choose-experience-level" class="form-control">
+															<option>Certifications</option>
+															<option value="A1">A1</option>
+															<option value="A2">A2</option>
+															<option value="A3">A3</option>
+															<option value="STS1">STS1</option>
+															<option value="STS2">STS2</option>
+															<option value="LUC">LUC</option>
+															<option value="PDRA">PDRA</option>
+															<option value="Ops. T1">Ops. T1</option>
+															<option value="Ops. T2">Ops. T2</option>
+															<option value="Ops. T3">Ops. T3</option>
+
+														</select>
+													</div>	
+												</div>
+
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Years of experience</label>
+														<input type="number" min="1" max="30" class="form-control" placeholder="Enter years of experience required">
+													</div>	
+												</div>
+											</div>
+
+
+
+											<h2 class="detail-title">More Information</h2>
+											<div class="row mrg-top-20">
+
+
+												<div class="col-lg-6 col-md-6 col-sm-12">
+													<div class="form-group">
+														<label>Hourly Salary</label>
+														<input type="number" min="10" max="3000" class="form-control" placeholder="Enter hourly salary">
+													</div>	
+												</div>
+
+
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>Contact Person e-mail</label>
+													<input type="number" min="10" max="3000" class="form-control" placeholder="Enter email address to the contact person">
+												</div>	
+											</div>
+										</div>												
+																					
+			
+
+											<div class="dashboard-caption-wrap">
+
+											</div>
+
+{% endblock %}

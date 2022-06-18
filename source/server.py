@@ -2,6 +2,7 @@ from asyncio.windows_events import NULL
 from flask import Flask, render_template, request, session, redirect, url_for
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
 
 app = Flask(__name__)
 
@@ -59,7 +60,7 @@ def handle_signup_pilot():
     with engine.connect() as connection:
         connection.execute(insert_query)
         id = connection.execute(get_id_query).fetchone()
-        return redirect(f"/pilotregister/'{int(id[0])}'", pilot = pilot)
+        return redirect(f"/pilotregister/'{int(id[0])}'")
 
 
 @app.route("/company-signup", methods=["POST"])
@@ -71,39 +72,97 @@ def handle_signup_company():
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO COMPANY_DATA (company_name, email, password)
+    INSERT INTO COMPANY_DATA (company_name, company_email, password)
     VALUES ('{name}','{email}', '{hashed_password}')
+    """
+    get_id_query = f"""
+    SELECT id FROM COMPANY_DATA WHERE company_name = '{name}' AND company_email = '{email}'
     """
 
     with engine.connect() as connection:
         connection.execute(insert_query)
-
-        return redirect(url_for("companyregister"))
-
+        id = connection.execute(get_id_query).fetchone()
+        return redirect(f"/companyregister/'{int(id[0])}'")
 
 @app.route("/pilotregister/<pilot_id>")
 def pilotregister(pilot_id):
 
+    get_pilot_query = f"""
+    SELECT id, first_name, last_name, email FROM PILOT_DATA WHERE id = {pilot_id}
+    """
 
-    return render_template("pilotregister.html", pilot_id=pilot_id)
+    with engine.connect() as connection:
+        pilot = connection.execute(get_pilot_query).fetchall()
+        return render_template("pilotregister.html", pilot=pilot[0])
 
-@app.route("/companyregister")
-def companyregister():
-    return render_template("companyregister.html")
+@app.route("/companyregister/<company_id>")
+def companyregister(company_id):
+
+
+    get_company_query = f"""
+    SELECT id, company_name, email FROM COMPANY_DATA WHERE id = {company_id}
+    """
+
+    with engine.connect() as connection:
+        company = connection.execute(get_company_query).fetchall()
+        return render_template("companyregister.html", company=company[0])
 
 
 @app.route("/register_pilot/<pilot_id>", methods=["POST"])
 def handle_register_pilot(pilot_id):
     first_name=request.form["first_name"]
-    password=request.form["password"]
-    picture=request.form["profilepicture_url"]
-    print(picture)
+    last_name=request.form["last_name"]
+    email=request.form["email"]
+    gender=request.form["gender"]
+    country=request.form["country"]
+    city=request.form["city"]
+    profession=request.form["profession"]
+    certifications=request.form["certifications"]
+    services=request.form["services"]
+    years_of_experience=request.form["years_of_experience"]
+    portfolio_url=request.form["portfolio_url"]
+    profilepicture_url=request.form["profilepicture_url"]
+    hourly_rate=request.form["hourly_rate"]
+    description=request.form["description"]
 
-    hashed_password = generate_password_hash(password)
+    s1_mechanical_understanding=request.form["s1"]
+    s2_communication_skills=request.form["s2"]
+    s3_problem_solving =request.form["s3"]
+    s4_detail_oriented =request.form["s4"]
+    s5_knowledge_of_regulations =request.form["s5"]
+    s6_navigation=request.form["s6"]
+
+    member_since = date.today().strftime("%Y-%m-%d %H:%M:%S")
+    flyby_certified = 'No'
+    badge = "New Joiner"
 
     insert_query = f"""
-    INSERT INTO PILOT_DATA (first_name, profilepicture_url, password)
-    VALUES ('{first_name}', '{picture}', '{hashed_password}')
+    UPDATE PILOT_DATA
+    SET 
+        first_name = '{first_name}', 
+        last_name = '{last_name}',
+        email = '{email}', 
+        gender = '{gender}', 
+        country = '{country}',
+        city = '{city}', 
+        profession = '{profession}', 
+        certifications = '{certifications}', 
+        services = '{services}', 
+        years_of_experience = {years_of_experience}, 
+        portfolio_url = '{portfolio_url}', 
+        profilepicture_url = '{profilepicture_url}', 
+        hourly_rate = {hourly_rate}, 
+        description = '{description}',
+        s1_mechanical_understanding =  {s1_mechanical_understanding}, 
+        s2_communication_skills = {s2_communication_skills}, 
+        s3_problem_solving = {s3_problem_solving}, 
+        s4_detail_oriented = {s4_detail_oriented}, 
+        s5_knowledge_of_regulations =  {s5_knowledge_of_regulations}, 
+        s6_navigation = {s6_navigation}, 
+        member_since = '{member_since}', 
+        flyby_certified = '{flyby_certified}' , 
+        badge = '{badge}' 
+    WHERE id = {pilot_id}
     """
 
     with engine.connect() as connection:
@@ -128,6 +187,11 @@ def handle_register_company():
 
     with engine.connect() as connection:
         connection.execute(insert_query)
+
+        return redirect(url_for("index"))
+
+@app.route("/create_project", methods=["POST"])
+def handle_create_project():
 
         return redirect(url_for("index"))
 
