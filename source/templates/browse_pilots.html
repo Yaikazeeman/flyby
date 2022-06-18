@@ -17,23 +17,24 @@
 					<!-- Company Searrch Filter Start -->
 					<div class="row extra-mrg">
 						<div class="wrap-search-filter">
-							<form>
+							<form action="/browse_pilots" method="POST">
 								<div class="col-md-4 col-sm-4">
-									<input type="text" class="form-control" placeholder="Keyword: Name, Tag">
+									<input type="text" name="name" class="form-control" placeholder="Name: Firstname, Lastname">
 								</div>
 								<div class="col-md-3 col-sm-3">
-									<input type="text" class="form-control" placeholder="Location: City, State, Zip">
+									<input type="text" name="location" class="form-control" placeholder="Location: City, Country">
 								</div>
 								<div class="col-md-3 col-sm-3">
-									<select class="form-control" id="j-category">
-										<option value="">&nbsp;</option>
-										<option value="1">Information Technology</option>
-										<option value="2">Mechanical</option>
-										<option value="3">Hardware</option>
-										<option value="4">Hospitality & Tourism</option>
-										<option value="5">Education & Training</option>
-										<option value="6">Government & Public</option>
-										<option value="7">Architecture</option>
+									<select name="service" id="services-selector" class="form-control" id="j-category">
+										<option>Choose drone services</option>
+										<option value="Aerial Photography">Aerial Photography</option>
+										<option value="Video Production">Marketing & Advertising Footage</option>
+										<option value="Real Estate Videography">Real Estate Videography</option>
+										<option value="Drone LiDAR imaging">Drone LiDAR imaging</option>
+										<option value="Aerial Mapping">Aerial Mapping</option>
+										<option value="Real Estate Videography">Real Estate Videography</option>
+										<option value="Aerial Cinematography">Aerial Cinematography</option>
+										<option value="Damage Assessment">Damage Assessment</option>
 									</select>
 
 								</div>

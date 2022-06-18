@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from flask import Flask, render_template, request, session, redirect, url_for
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -58,7 +59,7 @@ def handle_signup_pilot():
     with engine.connect() as connection:
         connection.execute(insert_query)
         id = connection.execute(get_id_query).fetchone()
-        return redirect(f"/pilotregister/'{int(id[0])}'")
+        return redirect(f"/pilotregister/'{int(id[0])}'", pilot = pilot)
 
 
 @app.route("/company-signup", methods=["POST"])
@@ -82,6 +83,8 @@ def handle_signup_company():
 
 @app.route("/pilotregister/<pilot_id>")
 def pilotregister(pilot_id):
+
+
     return render_template("pilotregister.html", pilot_id=pilot_id)
 
 @app.route("/companyregister")
@@ -130,15 +133,32 @@ def handle_register_company():
 
 ################################# start pilot part
 
-@app.route("/browse_pilots")
+@app.route("/browse_pilots", methods=["POST", "GET"])
 def browse_pilots():
     if "user_id" not in session:
         return render_template("403.html"), 403    
     else:
-        query = """
-        SELECT id, first_name, profilepicture_url, services, last_name
-        FROM PILOT_DATA
-        """
+
+        if request.method == 'POST':
+
+            name = request.form["name"]
+            location = request.form["location"]
+            service = request.form["service"]
+
+            query = """
+            SELECT id, first_name, profilepicture_url, services, last_name 
+            FROM PILOT_DATA WHERE 
+                first_name = '{name}' OR 
+                last_name = '{name}' OR 
+                city = '{location}' OR 
+                country = '{location}' OR 
+                services = '{service}'
+            """
+        else:
+            query = """
+            SELECT id, first_name, profilepicture_url, services, last_name
+            FROM PILOT_DATA
+            """
 
         with engine.connect() as connection:
             pilots = connection.execute(query)
@@ -215,7 +235,7 @@ def browse_projects():
     else:
         query = """
         SELECT id, project_name, country, city, services, start_date
-        FROM PROJECT_DATA
+        FROM MOCK_DATA
         """
 
         with engine.connect() as connection:
@@ -229,8 +249,8 @@ def project_detail(project_id):
         return render_template("403.html"), 403    
     else:
         query = f"""
-        SELECT id, project_name, contact_email, country, city, description, services, certification, project_duration_days, start_date, years_of_experience
-        FROM PROJECT_DATA
+        SELECT id, project_name, project_email, country, city, description, services, certification, duration, start_date, years_of_experience, project_requirements
+        FROM MOCK_DATA
         where id={project_id}
         """
         with engine.connect() as connection:
