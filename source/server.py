@@ -72,17 +72,49 @@ def handle_signup_company():
     hashed_password = generate_password_hash(password)
 
     insert_query = f"""
-    INSERT INTO COMPANY_DATA (company_name, company_email, password)
+    INSERT INTO COMPANY_DATA (company_name, email, password)
     VALUES ('{name}','{email}', '{hashed_password}')
     """
     get_id_query = f"""
-    SELECT id FROM COMPANY_DATA WHERE company_name = '{name}' AND company_email = '{email}'
+    SELECT id FROM COMPANY_DATA WHERE company_name = '{name}' AND email = '{email}'
     """
 
     with engine.connect() as connection:
         connection.execute(insert_query)
         id = connection.execute(get_id_query).fetchone()
         return redirect(f"/companyregister/'{int(id[0])}'")
+
+@app.route("/createprojectpage")
+def get_create_project_page():
+    return render_template("create_project.html")
+
+@app.route("/createproject", methods=["POST"])
+def handle_create_project():
+    project_name=request.form["project_name"]
+    services=request.form["services"]
+    country=request.form["country"] 
+    city=request.form["city"] 
+    start_date=request.form["start_date"] 
+    duration=request.form["duration"] 
+    description=request.form["description"] 
+    project_requirements=request.form["project_requirements"] 
+    certification=request.form["certification"] 
+    years_of_experience=request.form["years_of_experience"] 
+    salary=request.form["salary"] 
+    project_email=request.form["project_email"] 
+
+    insert_query = f"""
+    INSERT INTO MOCK_DATA (project_name, services, country, city, start_date, duration, description, project_requirements, certification, years_of_experience, salary, project_email)
+    VALUES ('{project_name}', '{services}', '{country}', '{city}', '{start_date}', {duration}, '{description}', '{project_requirements}', '{certification}', {years_of_experience}, {salary}, '{project_email}')
+    """
+    get_id_query = f"""
+    SELECT id FROM MOCK_DATA WHERE project_name = '{project_name}' AND project_email = '{project_email}'
+    """
+
+    with engine.connect() as connection:
+        connection.execute(insert_query)
+        id = connection.execute(get_id_query).fetchone()
+        return redirect(f"/projects/'{id[0]}'")
 
 @app.route("/pilotregister/<pilot_id>")
 def pilotregister(pilot_id):
@@ -171,29 +203,43 @@ def handle_register_pilot(pilot_id):
         return redirect(url_for("browse_companies"))
 
 
-@app.route("/register_company", methods=["POST"])
-def handle_register_company():
-    first_name=request.form["first_name"]
-    password=request.form["password"]
-    picture=request.form["profilepicture_url"]
-    print(picture)
+@app.route("/register_company/<company_id>", methods=["POST"])
+def handle_register_company(company_id):
+    company_name=request.form["company_name"]
+    email=request.form["email"]
+    country=request.form["country"]
+    city=request.form["city"]
+    number_of_employees=request.form["number_of_employees"]
+    industry=request.form["industry"]
+    profilepicture_url=request.form["profilepicture_url"]
+    website_link=request.form["website_link"]
+    description=request.form["description"]
 
-    hashed_password = generate_password_hash(password)
+    member_since = date.today().strftime("%Y-%m-%d %H:%M:%S")
+    badge = "New Joiner"
 
     insert_query = f"""
-    INSERT INTO COMPANY_DATA (first_name, profilepicture_url, password)
-    VALUES ('{first_name}', '{picture}', '{hashed_password}')
+    UPDATE COMPANY_DATA
+    SET 
+        company_name = '{company_name}',
+        email = '{email}', 
+        country = '{country}',
+        city = '{city}', 
+        number_of_employees = '{number_of_employees}', 
+        industry = '{industry}', 
+        website_link = '{website_link}', 
+        profilepicture_url = '{profilepicture_url}', 
+        description = '{description}',
+        member_since = '{member_since}',  
+        badge = '{badge}' 
+    WHERE id = {company_id}
     """
 
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("index"))
+        return redirect(url_for("browse_pilots"))
 
-@app.route("/create_project", methods=["POST"])
-def handle_create_project():
-
-        return redirect(url_for("index"))
 
 ################################# start pilot part
 
