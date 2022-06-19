@@ -26,6 +26,10 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 def index():
     return render_template("index.html")
 
+@app.route("/personalpage")
+def personalpage():
+    return render_template("myprofile.html")
+
 @app.route("/brochure", methods=["POST"])
 def brochure():
 
@@ -581,5 +585,5 @@ def handle_sent_message():
 
         return redirect(url_for("direct_messages",user_id=to_id))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
