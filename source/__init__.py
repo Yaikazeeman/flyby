@@ -26,9 +26,33 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 def index():
     return render_template("index.html")
 
-@app.route("/personalpage")
-def personalpage():
-    return render_template("myprofile.html")
+@app.route("/posted_projects")
+def posted_projects():
+    return render_template("c_posted_projects.html")
+
+@app.route("/running_projects")
+def running_projects():
+    return render_template("c_running_projects.html")
+
+@app.route("/pilot_application_list")
+def pilot_application_list():
+    return render_template("c_pilot_application_list.html")
+
+@app.route("/pilot_request_list")
+def pilot_request_list():
+    return render_template("c_pilot_request_list.html")
+
+@app.route("/applied_projects")
+def applied_projects():
+    return render_template("p_applied_projects.html")
+
+@app.route("/request_to_hire")
+def request_to_hire():
+    return render_template("p_request_to_hire.html")
+
+@app.route("/p_running_projects")
+def p_running_projects():
+    return render_template("p_running_projects.html")
 
 @app.route("/brochure", methods=["POST"])
 def brochure():
