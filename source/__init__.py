@@ -436,9 +436,9 @@ def project_detail(project_id):
 
 @app.route("/payment")
 def payment():
-    if "user_id" not in session:
-        return render_template("403.html"), 403    
-    else:
+    # if "user_id" not in session:
+    #     return render_template("403.html"), 403    
+    # else:
         return render_template("payment-methode.html")
 
 @app.route("/login")
