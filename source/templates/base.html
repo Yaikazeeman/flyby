@@ -38,6 +38,19 @@
 						<i class="fa fa-bars"></i>
 					</button>
 					<!-- Start Header Navigation -->
+
+					{% if not session['useremail'] %}
+					<div class="navbar-header logo-nav flex">
+						<a class="navbar-brand" href="/">
+							<img src="../static/assets/img/flyby-logo-cut.png" class="logo logo-display" alt="">
+							<img src="../static/assets/img/flyby-logo-cut.png" class="logo logo-scrolled" alt="">
+						</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+						<li><a href="/login" ><i class="fa fa-sign-in"></i>Login</a></li>
+						<li class="left-br"><a href="#"  data-toggle="modal" data-target="#signup" class="signin">Sign up now!</a></li>
+					</ul>
+					{% else %}
 					<div class="navbar-header logo-nav flex">
 						<a class="navbar-brand" href="/">
 							<img src="../static/assets/img/flyby-logo-cut.png" class="logo logo-display" alt="">
@@ -46,15 +59,12 @@
 						<div class="temp-browse-companies-link">
 							<a href="/browse_companies" >Browse Companies</a>
 						</div>
+						<div class="temp-browse-companies-link">
+							<a href="/browse_pilots" >Browse Service Providers</a>
+						</div>
 					</div>
-					{% if not session['useremail'] %}
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="/login" ><i class="fa fa-sign-in"></i>Login</a></li>
-						<li class="left-br"><a href="#"  data-toggle="modal" data-target="#signup" class="signin">Sign up now!</a></li>
-					</ul>
-					{% else %}
-					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li><a href="/personal_profile" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li><a href="/pilot_application_list" ><i class="fa fa-sign-in"></i>View my profile</a></li>
 						<li class="left-br"><a href="/logout" class="signin">Logout</a></li>
 					</ul>
 					{% endif %}
@@ -334,8 +344,94 @@
 			</div>   
 			<!-- End payment Window -->
 
+			<!-- apply Window Code -->
+			<div class="modal fade" id="admin_tool" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
 
+							<div class="new-logwrap">
+								<div class="main-heading">
+									<p>Our admin tool Flyby Drive is still under construction.</p>
+									<h2>We will notify you when it is<span> live!</span></h2>
+								</div>
+							
+								
+							</div>
+							
+						</div>
+						</div>
+				</div>
+			</div>   
+			<!-- End apply tool Window -->
 			
+			<!-- apply Window Code -->
+			<div class="modal fade" id="apply_project" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+
+							<div class="new-logwrap">
+								<div class="main-heading">
+									<h2>You successfully applied<span> for the project!</span></h2>
+									<p>You can check the status of the application on your profile.</p>
+								</div>
+							
+								
+							</div>
+							
+						</div>
+						</div>
+				</div>
+			</div>   
+			<!-- End apply tool Window -->
+
+
+			<!-- Request to hire Window Code -->
+			<div class="modal fade" id="request_to_hire" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+
+							<div class="new-logwrap">
+								<div class="main-heading">
+									<h2>You successfully requested the service provider <span> to join your project!</span></h2>
+									<p>You can check the status of the action on you profile in the list of requested pilots.</p>
+								</div>
+							
+								
+							</div>
+							
+						</div>
+						</div>
+				</div>
+			</div>   
+			<!-- End Request to hire Window -->
+
+
+			<!-- Payment Info Window Code -->
+			<div class="modal fade" id="payment_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+
+							<div class="new-logwrap">
+								<div class="main-heading">
+									<h2>Pay now to <span>start collaborating </span>with the pilot!</h2>
+									<p>You are requested to pay 25% of your project worth as a deposit, and the remaining 75% will be paid after the project kick-off. This is to ensure a secure work environment for both parties. Learn more in Flyby Terms & Conditions.</p>
+								</div>
+								<div  class="main-heading" >
+									<a   href="/payment" class="btn btn-primary manage-btn">Proceed</a>
+								</div>
+								
+								
+							</div>
+							
+						</div>
+						</div>
+				</div>
+			</div>   
+			<!-- Payment Info Window -->			
 							
 			<!-- admin tool Window Code -->
 			<div class="modal fade" id="admin_tool" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
