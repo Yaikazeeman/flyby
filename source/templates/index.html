@@ -9,15 +9,23 @@
 				
 					<div class="col-md-6 col-sm-6 no-padd bl-dark banner-pilot">
 						<div class="call-to-act-caption">
-							<h2>Are you a company looking for drone pilot or services? </h2>
+							<h2>Are you a company looking for a drone pilot or services? </h2>
+							{% if not session['useremail'] %}
+							<a  data-toggle="modal" data-target="#signup" class="btn bat-call-to-act banner-btn">Click to hire</a>
+							{% else %}
 							<a href="/browse_pilots"  class="btn bat-call-to-act banner-btn">Click to hire</a>
+							{% endif %}
 						</div>
 					</div>
 					
 					<div class="col-md-6 col-sm-6 no-padd bl-dark banner-company">
 						<div class="call-to-act-caption">
 							<h2>Are you a drone service provider looking for projects?</h2>
-							<a href="/browse_projects"  class="btn bat-call-to-act banner-btn">Get a project</a>
+							{% if not session['useremail'] %}
+							<a href="/browse_projects"  data-toggle="modal" data-target="#signup" class="btn bat-call-to-act banner-btn">Get a project</a>
+							{% else %}
+							<a href="/browse_projects" class="btn bat-call-to-act banner-btn">Get a project</a>
+							{% endif %}
 						</div>
 					</div>
 					
@@ -28,7 +36,11 @@
 			<!-- bottom form section start -->
 			<section class="bottom-search-form">
 				<div class="container">
+					{% if not session['useremail'] %}
+					<form class="bt-form">
+					{% else %}
 					<form class="bt-form" action="/browse_pilots">
+					{% endif %}
 						<div class="col-md-4 col-sm-6">
 							<input type="text" class="form-control" placeholder="Search by keywords">
 						</div>
@@ -68,7 +80,11 @@
 							</select>
 						</div>
 						<div class="col-md-4 col-sm-6">
-							<button data-toggle="modal" data-target="#signup" type="submit" class="btn btn-primary">Search</button>
+							{% if not session['useremail'] %}
+							<button data-toggle="modal" data-target="#signup" class="btn btn-primary">Search</button>
+							{% else %}
+							<button type="submit" class="btn btn-primary">Search</button>
+							{% endif %}
 						</div>
 					</form>
 				</div>
@@ -96,7 +112,11 @@
 									</div>
 
 									<div class="category-detail category-desc-text">
+										{% if not session['useremail'] %}
+										<h4> <a data-toggle="modal" data-target="#signup">Photography</a></h4>
+										{% else %}
 										<h4> <a href="/browse_pilots">Photography</a></h4>
+										{% endif %}
 										<p>122 Jobs</p>
 									</div>
 								</div>
@@ -112,7 +132,11 @@
 									</div>
 
 									<div class="category-detail category-desc-text">
+										{% if not session['useremail'] %}
+										<h4> <a data-toggle="modal" data-target="#signup">Videography</a></h4>
+										{% else %}
 										<h4> <a href="/browse_pilots">Videography</a></h4>
+										{% endif %}
 										<p>155 Jobs</p>
 									</div>
 								</div>
@@ -128,7 +152,11 @@
 									</div>
 
 									<div class="category-detail category-desc-text">
+										{% if not session['useremail'] %}
+										<h4> <a data-toggle="modal" data-target="#signup">Mapping services</a></h4>
+										{% else %}
 										<h4> <a href="/browse_pilots">Mapping services</a></h4>
+										{% endif %}
 										<p>300 Jobs</p>
 									</div>
 								</div>
@@ -144,7 +172,11 @@
 									</div>
 
 									<div class="category-detail category-desc-text">
+										{% if not session['useremail'] %}
+										<h4> <a data-toggle="modal" data-target="#signup">Live streaming</a></h4>
+										{% else %}
 										<h4> <a href="/browse_pilots">Live streaming</a></h4>
+										{% endif %}
 										<p>80 Jobs</p>
 									</div>
 								</div>
@@ -307,8 +339,12 @@
 					<div class="col-md-6 col-sm-6 no-padd bl-dark">
 						<div class="call-to-act-caption">
 							<h2>Find the right drone service provider for your project</h2>
-							<h3>Flyby provides your company with a wide range of qualified drone service providers that can bring your drone project to the next level. Sign up now and hire the best!</h3>
+							<h3>Flyby provides your company with a wide range of qualified drone service providers that can bring your project to the next level. Sign up now and hire the best!</h3>
+							{% if not session['useremail'] %}
+							<a data-toggle="modal" data-target="#signup" class="btn bat-call-to-act">Hire</a>
+							{% else %}
 							<a href="/browse_pilots" class="btn bat-call-to-act">Hire</a>
+							{% endif %}
 						</div>
 					</div>
 					
@@ -316,7 +352,11 @@
 						<div class="call-to-act-caption">
 							<h2>Find the perfect project as a drone service provider</h2>
 							<h3>Flyby provides a centralized platform to find the right drone project that fits your experience, skillset or location. Sign up now to start expending your portfolio!</h3>
-							<a  href="/browse_projects" class="btn bat-call-to-act">Get a project</a>
+							{% if not session['useremail'] %}
+							<a data-toggle="modal" data-target="#signup" class="btn bat-call-to-act">Get a project</a>
+							{% else %}
+							<a href="/browse_pilots" class="btn bat-call-to-act">Get a project</a>
+							{% endif %}
 						</div>
 					</div>
 					

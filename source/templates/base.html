@@ -64,7 +64,11 @@
 						</div>
 					</div>
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+						{% if session['is_pilot'] %}
+						<li><a href="/p_running_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						{% else %}
 						<li><a href="/pilot_application_list" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						{% endif %}
 						<li class="left-br"><a href="/logout" class="signin">Logout</a></li>
 					</ul>
 					{% endif %}
@@ -230,7 +234,9 @@
 														<i class="theme-cl ti-lock"></i>
 													</div>
 												</div>
-												
+												<div class="register-account text-center">
+													If you have already registered - <a class="theme-cl" href="login">Sign in</a>
+												</div>
 												<div class="register-account text-center">
 													By hitting the <span class="theme-cl">"Register"</span> button, you agree to the <a class="theme-cl" href="#">Terms conditions</a> and <a class="theme-cl" href="#">Privacy Policy</a>
 												</div>
@@ -282,6 +288,9 @@
 														<input type="password" name="password" class="form-control" placeholder="Enter Your Password">
 														<i class="theme-cl ti-lock"></i>
 													</div>
+												</div>
+												<div class="register-account text-center">
+													If you have already registered - <a class="theme-cl" href="login">Sign in</a>
 												</div>
 												
 												<div class="register-account text-center">

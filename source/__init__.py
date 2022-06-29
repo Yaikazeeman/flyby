@@ -229,7 +229,7 @@ def handle_register_pilot(pilot_id):
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("browse_companies"))
+        return redirect(url_for("login"))
 
 
 @app.route("/register_company/<company_id>", methods=["POST"])
@@ -267,7 +267,7 @@ def handle_register_company(company_id):
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("browse_pilots"))
+        return redirect(url_for("login"))
 
 
 ################################# start pilot part
@@ -311,7 +311,7 @@ def pilot_detail(pilot_id):
         return render_template("403.html"), 403    
     else:
         query = f"""
-        SELECT id, first_name, profilepicture_url, last_name, city, country, gender, badge, services, years_of_experience, member_since, description, s2_communication_skills
+        SELECT id, first_name, profilepicture_url, last_name, city, country, gender, badge, services, years_of_experience, member_since, description, s2_communication_skills, hourly_rate, certifications, profession
         FROM PILOT_DATA
         where id={pilot_id}
         """
@@ -452,13 +452,13 @@ def handle_login():
     password=request.form["password"]
 
     login_query = f"""
-    SELECT password, id
+    SELECT password, id , first_name
     FROM PILOT_DATA
     WHERE email='{email}'
 
     UNION
 
-    SELECT password, id
+    SELECT password, id , rating
     FROM COMPANY_DATA
     WHERE email='{email}'
 
@@ -466,10 +466,14 @@ def handle_login():
 
     with engine.connect() as connection:
         user = connection.execute(login_query).fetchone()
-        print(user)
         if user and check_password_hash(user[0], password):
             session["user_id"] = user[1]
             session["useremail"] = email
+            if type(user[2]) == str:
+                 session["is_pilot"] = True
+            else:
+                session["is_pilot"] = False
+           
             return redirect(url_for("index"))
         else:
             return render_template("404.html"), 404
@@ -478,6 +482,8 @@ def handle_login():
 def logout():
     session.pop("useremail")
     session.pop("user_id")
+    session.pop("is_pilot")
+
 
     return redirect(url_for("index"))
 
