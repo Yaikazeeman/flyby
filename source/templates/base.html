@@ -6,6 +6,7 @@
 	<title>Flyby - Find the perfect match for your drone project</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="icon" type="image/x-icon" href="../static/assets/img/flyby_logo_super_small.png">
 
 	<!-- CSS
 	================================================== -->
@@ -57,20 +58,20 @@
 							<img src="../static/assets/img/flyby-logo-cut.png" class="logo logo-scrolled" alt="">
 						</a>
 						<div class="temp-browse-companies-link">
-							<a href="/browse_companies" >Browse Companies</a>
+							<a href="/browse_companies" >Companies</a>
 						</div>
 						<div class="temp-browse-companies-link">
-							<a href="/browse_pilots" >Browse Service Providers</a>
+							<a href="/browse_pilots" >Service Providers</a>
 						</div>
 						<div class="temp-browse-companies-link">
-							<a href="/browse_projects" >Browse Projects</a>
+							<a href="/browse_projects" >Projects</a>
 						</div>
 					</div>
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 						{% if session['is_pilot'] %}
-						<li><a href="/applied_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li><a href="/applied_projects" >View my profile</a></li>
 						{% else %}
-						<li><a href="/posted_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li><a href="/posted_projects" >View my profile</a></li>
 						{% endif %}
 						<li class="left-br"><a href="/logout" class="signin">Logout</a></li>
 					</ul>

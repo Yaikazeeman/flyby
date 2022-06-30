@@ -36,13 +36,15 @@
 							</div>
 							
 						</div>
-						
+
+						{% if not session['is_pilot'] %}
 						<div class="ur-detail-btn">
 							<!-- <a href="#" class="btn btn-warning mrg-bot-10 full-width"><i class="ti-thumb-up mrg-r-5"></i>Shortlist</a><br> -->
 							<a data-toggle="modal"data-target="#request_to_hire" href="#" class="btn btn-primary mrg-bot-10 full-width">Request to hire!</a><br>
 							<!-- <a href="#" class="btn btn-info full-width"><i class="ti-download mrg-r-5"></i>Download CV</a> -->
 							<a href="#" class="btn btn-warning full-width">Save to list</a>
 						</div>
+						{% endif %}
 						
 					</div>
 					
