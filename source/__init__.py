@@ -229,7 +229,7 @@ def handle_register_pilot(pilot_id):
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("login"))
+        return redirect(url_for("/"))
 
 
 @app.route("/register_company/<company_id>", methods=["POST"])
@@ -267,7 +267,7 @@ def handle_register_company(company_id):
     with engine.connect() as connection:
         connection.execute(insert_query)
 
-        return redirect(url_for("login"))
+        return redirect(url_for("/"))
 
 
 ################################# start pilot part
