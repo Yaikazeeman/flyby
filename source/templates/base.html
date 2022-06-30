@@ -62,12 +62,15 @@
 						<div class="temp-browse-companies-link">
 							<a href="/browse_pilots" >Browse Service Providers</a>
 						</div>
+						<div class="temp-browse-companies-link">
+							<a href="/browse_projects" >Browse Projects</a>
+						</div>
 					</div>
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 						{% if session['is_pilot'] %}
-						<li><a href="/p_running_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li><a href="/applied_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
 						{% else %}
-						<li><a href="/pilot_application_list" ><i class="fa fa-sign-in"></i>View my profile</a></li>
+						<li><a href="/posted_projects" ><i class="fa fa-sign-in"></i>View my profile</a></li>
 						{% endif %}
 						<li class="left-br"><a href="/logout" class="signin">Logout</a></li>
 					</ul>

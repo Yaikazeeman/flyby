@@ -452,13 +452,13 @@ def handle_login():
     password=request.form["password"]
 
     login_query = f"""
-    SELECT password, id , first_name
+    SELECT password, id , first_name, last_name, profilepicture_url
     FROM PILOT_DATA
     WHERE email='{email}'
 
     UNION
 
-    SELECT password, id , rating
+    SELECT password, id , rating, company_name, profilepicture_url
     FROM COMPANY_DATA
     WHERE email='{email}'
 
@@ -469,10 +469,14 @@ def handle_login():
         if user and check_password_hash(user[0], password):
             session["user_id"] = user[1]
             session["useremail"] = email
+            session["profilepicture_url"] = user[4]
             if type(user[2]) == str:
                  session["is_pilot"] = True
+                 session["first_name"] = user[2]
+                 session["last_name"] = user[3]
             else:
                 session["is_pilot"] = False
+                session["company_name"] = user[3]
            
             return redirect(url_for("index"))
         else:
@@ -480,10 +484,19 @@ def handle_login():
 
 @app.route("/logout")
 def logout():
-    session.pop("useremail")
-    session.pop("user_id")
-    session.pop("is_pilot")
-
+    if session["is_pilot"]:
+        session.pop("useremail")
+        session.pop("is_pilot")
+        session.pop("user_id")
+        session.pop("first_name")
+        session.pop("last_name")
+        session.pop("profilepicture_url")
+    else:
+        session.pop("useremail")
+        session.pop("is_pilot")
+        session.pop("profilepicture_url")
+        session.pop("user_id")
+        session.pop("company_name")
 
     return redirect(url_for("index"))
 

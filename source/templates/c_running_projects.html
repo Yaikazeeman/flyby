@@ -6,41 +6,40 @@
 				<div class="container-fluid">
 					<div class="row">
 					
-						                   <!-- Sidebar Wrap -->
-										   <div class="col-lg-3 col-md-4">
-											<div class="side-dashboard">
-												
-												<div class="dashboard-avatar">
-												
-													<div class="dashboard-avatar-thumb">
-														<img src="assets/img/can-2.png" class="img-avater" alt="" />
-													</div>
-													
-													<div class="dashboard-avatar-text">
-														<h4>Company name</h4>
-														<span>Industry</span>
-													</div>
-													
-												</div>
-												
-												<div class="dashboard-menu">
-													<ul>
-													
-														<li><a href="/posted_projects"><i class="ti-ruler-pencil"></i>My projects</a></li>
-														<li ><a href="/createprojectpage"><i class="ti-id-badge"></i>Create new project</a></li>
-														<li><a href="/running_projects"><i class="ti-briefcase"></i>My running projects</a></li>
-														<li><a href="/pilot_application_list"><i class="ti-user"></i>Pilot applications</a></li>
-														<li><a href="/pilot_request_list"><i class="ti-time"></i>Pilot requests to hire</a></li>
-												
-														<li><a href="/companies/4"><i class="ti-home"></i>My company page</a></li>
-														<li ><a href="/register_company/4"><i class="ti-pencil-alt"></i>Update company info</a></li>
-													
-													
-													</ul>
-												</div>
-											</div>
-										</div>
-
+                    <!-- Sidebar Wrap -->
+                    <div class="col-lg-3 col-md-4">
+                        <div class="side-dashboard">
+                            
+                            <div class="dashboard-avatar">
+                            
+                                <div class="dashboard-avatar-thumb">
+                                    <img src="{{session['profilepicture_url']}}" class="img-avater" alt="" />
+                                </div>
+                                
+                                <div class="dashboard-avatar-text">
+                                    <h4>{{session['company_name']}}</h4>
+                                    <!-- <span>Industry</span> -->
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="dashboard-menu">
+                                <ul>
+                                
+                                    <li><a href="/posted_projects"><i class="ti-ruler-pencil"></i>My projects</a></li>
+                                    <li ><a href="/createprojectpage"><i class="ti-id-badge"></i>Create new project</a></li>
+                                    <li><a href="/running_projects"><i class="ti-briefcase"></i>My running projects</a></li>
+                                    <li><a href="/pilot_application_list"><i class="ti-user"></i>Service providers applications</a></li>
+                                    <li><a href="/pilot_request_list"><i class="ti-time"></i>Service providers requests to hire</a></li>
+                                    <li><a href="/companies/{{session['user_id']}}"><i class="ti-home"></i>My company page</a></li>
+                                    <li ><a href="/companyregister/{{session['user_id']}}"><i class="ti-pencil-alt"></i>Update company info</a></li>
+                                
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+					
 						<!-- Content Wrap -->
 						<div class="col-lg-9 col-md-8">
 							<div class="dashboard-body">

@@ -14,11 +14,11 @@
 							<div class="dashboard-avatar">
 							
 								<div class="dashboard-avatar-thumb">
-									<img src="assets/img/can-2.png" class="img-avater" alt="" />
+									<img src="{{session['profilepicture_url']}}" class="img-avater" alt="" />
 								</div>
 								
 								<div class="dashboard-avatar-text">
-									<h4>Shaurya Preet</h4>
+									<h4>{{session['first_name']}} {{session['last_name']}}</h4>
 								</div>
 								
 							</div>
@@ -29,8 +29,8 @@
 									<li><a href="/applied_projects"><i class="ti-briefcase"></i>Applied projects</a></li>
 									<li><a href="/request_to_hire"><i class="ti-wallet"></i>Requests to hire</a></li>
 									<li><a href="/p_running_projects"><i class="ti-ruler-pencil"></i>Running projects</a></li>
-									<li><a href="/pilots/5"><i class="ti-id-badge"></i>My profile</a></li>
-									<li><a href="/pilotregister/5"><i class="ti-pencil-alt"></i>Edit profile</a></li>
+									<li><a href="/pilots/{{session['user_id']}}"><i class="ti-id-badge"></i>My profile</a></li>
+									<li><a href="/pilotregister/{{session['user_id']}}"><i class="ti-pencil-alt"></i>Edit profile</a></li>
 								
 								</ul>
 							</div>
